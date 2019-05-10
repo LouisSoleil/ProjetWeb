@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>Classement</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/ProjetWeb/application/assets/Ranking.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -14,24 +13,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-	<div class ="container">
-		<div class="row">
-			<div class ='col-sm-12'>
-			<h3>Classement des meilleurs pronostiqueurs</h3>
-			</div>	
-		</div>
-		<div class="row">
-		
-		<div class="col-sm-4">
-			<p>Rang</p>
-		</div>
-		<div class="col-sm-4">
-			<p>Pseudo</p>
-		</div>
-		<div class="col-sm-4">
-			<p>Section</p>
-		</div>	
-		</div>
-		
-	</div>
+<div class="container">
+	<h2>Classement des meilleurs pronostiqueurs</h2>         
+	<table class="table">
+    	<thead>
+			<tr>
+        	<th>Rang</th>
+        	<th>Pseudo</th>
+        	<th>Classe</th>
+      		</tr>
+    	</thead>
+    	<tbody>
+      		<tr>
+        	<td>1</td>
+        	<td>Luistitie</td>
+        	<td>IG3</td>
+      		</tr>
+     		<tr>
+       		<td>1</td>
+        	<td>Luistitie</td>
+        	<td>IG3</td>
+      		</tr>
+      		<tr>
+        	<td>1</td>
+        	<td>Luistitie</td>
+        	<td>IG3</td>
+     		</tr>
+    	</tbody>
+	  </table>
+</div>
 </body>

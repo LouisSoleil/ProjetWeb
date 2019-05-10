@@ -2,9 +2,11 @@
 height: auto;
 }
 
+.container{
+	background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
+	border-radius: 15px;
+}
 .content {
-background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
-border-radius: 15px;
 padding-bottom: 15px;
 border-radius: 5px;
 }

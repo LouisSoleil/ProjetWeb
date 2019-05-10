@@ -1,0 +1,22 @@
+.container{
+	text-align: center;
+	background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
+	border-radius: 5px;
+}
+body{
+	background-image: url("/ProjetWeb/application/JPEG/bargood.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+p{
+	text-align: center;
+	color: #9A7D0A;
+}
+
+h3{
+	text-align: center;
+	color: #873600;
+	padding-bottom: 6px;
+}

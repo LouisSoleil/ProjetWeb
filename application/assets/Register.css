@@ -3,6 +3,7 @@
     padding-top: 2%;
     background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
     border-radius: 5px;
+    padding-bottom: 5px;
 }
 
 .form-group{
@@ -13,6 +14,7 @@
 h2{
     color: #873600;
     text-decoration: underline;
+    text-align: center;
 }
 body{
 	background-image: url("/ProjetWeb/application/JPEG/bargood.jpg");

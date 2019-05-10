@@ -7,19 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-
-
-  </style>
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
 </head>
 <body>
 <div class="container">
-  <div class="col-sm-12"> 
-      <h1>Bienvenue</h1>
-  </div>    
+  <div class="row">
+    <div class="col-sm-12"> 
+      <h1>Bienvenue sur Tu payes ?</h1>
+    </div>
+  </div>
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="#">Link</a></p>

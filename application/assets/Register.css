@@ -10,6 +10,10 @@
     text-align: left;
 }
 
+h2{
+    color: #873600;
+    text-decoration: underline;
+}
 body{
 	background-image: url("/ProjetWeb/application/JPEG/bargood.jpg");
     background-repeat: no-repeat;

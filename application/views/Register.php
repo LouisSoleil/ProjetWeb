@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 </head>
 <body>
+	<div class="col-sm-12">
+		<h2>Nouveau sur le site ?</h2>
+	</div>
 	<div class ="container">
 		<div class="col-sm-12">
 			<div class="form-group">

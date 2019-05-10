@@ -16,9 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </style>
 </head>
 <body>
-
-
-
 <div class="container">
   <div class="col-sm-12"> 
       <h1>Bienvenue</h1>
@@ -42,10 +39,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     </div>
 </div>
-
-<footer>
-  <span>Footer Text</span>
-</footer>
-
 </body>
 </html>

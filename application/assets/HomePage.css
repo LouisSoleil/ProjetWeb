@@ -35,17 +35,7 @@ padding: 15px;
 }
 
 
-footer {
-background-color: #616A6B;
-color: white;
-padding: 15px;
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-font-family : Verdana;
-text-align: center;
-}
+
 
 body {
 background-image: url("/ProjetWeb/application/JPEG/bargood.jpg");

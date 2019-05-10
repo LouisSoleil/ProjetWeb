@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/CI/application/assets/HomePage.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <style>
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <img  src="/CI/application/JPEG/logo.gif" class="navbar-brand" href="#"></img>
+      <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand" href="#"></img>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">

@@ -1,7 +1,9 @@
 .container{
 	text-align: center;
     margin-top: 3%;
-    background-image: url("../JPEG/fond-beige.png");
+    padding-top: 2%;
+    background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
+    border-radius: 5px;
 }
 
 .form-group{

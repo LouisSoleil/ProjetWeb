@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand" href="#"></img>
+      <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a href="#">A propos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/ProjetWeb/Registers"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+        <li><a href="/ProjetWeb/Connexions"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
       </ul>
     </div>
   </div>

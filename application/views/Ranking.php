@@ -25,22 +25,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       		</tr>
     	</thead>
     	<tbody>
+        <?php 
+          if ($students){
+            foreach($students as $student){
+          ?>
       		<tr>
         	<td>1</td>
-        	<td>Luistitie</td>
-        	<td>IG3</td>
+        	<td><?php echo $student->PseudoEleve; ?></td>
+        	<td><?php echo $student->LibelleAnnee; ?></td>
       		</tr>
-     		<tr>
-       		<td>1</td>
-        	<td>Luistitie</td>
-        	<td>IG3</td>
-      		</tr>
-      		<tr>
-        	<td>1</td>
-        	<td>Luistitie</td>
-        	<td>IG3</td>
-     		</tr>
     	</tbody>
+      <?php 
+          }
+            }
+      ?>
 	  </table>
 </div>
 </body>

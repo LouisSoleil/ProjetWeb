@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Student extends CI_Model
+class My_Student extends CI_Model
 {
 	public function __contruct(){
 		$this->load->database();
@@ -11,7 +11,7 @@ class Student extends CI_Model
 	
 	public function add_student($data)
 	{
-		$date = array(
+		$data = array(
 			'NumEleve' => $this->input->post('NumEleve'),
 			'EmailEleve' => $this->input->post('EmailEleve'),
 			'MDPEleve' => $this->input->post('MDPEleve'),
@@ -37,8 +37,12 @@ class Student extends CI_Model
 	}
 	
 	
-	public function list_student()
+	public function get_student()
 	{
-		
+		$this->db->select('*');
+    	$this->db->from('eleve e');
+    	$this->db->join('annee a', 'e.IdAnnee = a.IdAnnee');
+		$query = $this->db->get();
+		return $query->result();
 	}
 }

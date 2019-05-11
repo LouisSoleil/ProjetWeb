@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/ProjetWeb/application/assets/Ranking.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/General.css">
 </head>
 
 <body>

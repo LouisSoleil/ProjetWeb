@@ -22,32 +22,22 @@ class Student extends CI_Model
 		$this->db->insert('eleve', $data);
 	}
 	
-	
-	public function editer_news()
+	/**
+	 *	modifier les information d'un etudiant
+	 */
+	public function edit_student()
 	{
 		
 	}
 	
-	/**
-	 *	Supprime une news
-	 */
-	public function supprimer_news()
+	
+	public function rm_student()
 	{
 		
 	}
 	
-	/**
-	 *	Retourne le nombre de news
-	 */
-	public function count()
-	{
-		
-	}
 	
-	/**
-	 *	Retourne une liste de news
-	 */
-	public function liste_news()
+	public function list_student()
 	{
 		
 	}

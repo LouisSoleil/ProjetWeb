@@ -46,3 +46,4 @@ class My_Student extends CI_Model
 		return $query->result();
 	}
 }
+?>

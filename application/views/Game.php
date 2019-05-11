@@ -41,20 +41,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <option value="five">Five</option>
               </select>
               <select class="form-control">
-                //filiere
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="three">Three</option>
-                <option value="four">Four</option>
-                <option value="five">Five</option>
+                <?php foreach($filieres as $filiere){ ?>
+                <option value="filiere"><?php echo $filiere->LibelleFiliere; ?></option>
+                <?php }?>
               </select>
               <select class="form-control">
-                //année
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="three">Three</option>
-                <option value="four">Four</option>
-                <option value="five">Five</option>
+                <?php foreach($years as $year) { ?>
+
+                  <option value="year"><?php echo $year->LibelleAnnee; ?></option>
+                <?php }?>
               </select>
               <select class="form-control">
                 //matiere

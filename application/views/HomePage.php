@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container">
   <div class="row">
     <div class="col-sm-12"> 
-      <h1>Bienvenue sur Winaboire (ou BetDrink) </h1>
+      <h1>Bienvenue sur BetDrink</h1>
     </div>
   </div>
     <div class="col-sm-12">

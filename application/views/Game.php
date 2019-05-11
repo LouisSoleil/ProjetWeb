@@ -21,8 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class ="container">
         <div class="row"  >
+          <div class="cl-sm-12">
+            <h1>C'est ici qu'on joue</h1>
+          </div>
+        </div>
+        <div class="row">
             <div class="cl-sm-12">
-                <h1>C'est ici qu'on joue</h1>
+              <p id="pHP">Commence par remplir tous les champs puis clique sur Valider</p>
             </div>
         </div>
           <div class="row">

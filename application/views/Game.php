@@ -34,38 +34,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <form class="form-inline">
               <select class="form-control">
                 // mode de jeu
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="three">Three</option>
-                <option value="four">Four</option>
-                <option value="five">Five</option>
+                <option value="one">Only One</option>
+                <option value="two">All in</option>
+                <option value="three">Team</option>
               </select>
               <select class="form-control">
-                <?php foreach($filieres as $filiere){ ?>
-                <option value="filiere"><?php echo $filiere->LibelleFiliere; ?></option>
-                <?php }?>
+                <?php foreach($sectors as $sector){ ?>
+                <option value="filiere"><?php echo $sector->LibelleFiliere; ?></option>
+                <?php $s = $this->input->get('filiere'); }?>
               </select>
               <select class="form-control">
                 <?php foreach($years as $year) { ?>
-
                   <option value="year"><?php echo $year->LibelleAnnee; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
-                //matiere
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="three">Three</option>
-                <option value="four">Four</option>
-                <option value="five">Five</option>
+                <?php foreach($subjects as $subject) { ?>
+                  <option value="year"><?php echo $subject->TypeMatiere; ?></option>
+                <?php }?>
               </select>
               <select class="form-control">
-                //type controle
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="three">Three</option>
-                <option value="four">Four</option>
-                <option value="five">Five</option>
+                <?php foreach($finals as $final) { ?>
+                  <option value="year"><?php echo $final->TypeDevoir; ?></option>
+                <?php }?>
               </select>
               <button type="button" class="btn">Valider</button>
             </form>

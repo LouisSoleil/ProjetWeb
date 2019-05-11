@@ -9,7 +9,7 @@ class My_Game extends CI_Model
 	protected $table = 'annee';
 
 
-	public function get_filiere()
+	public function get_sector()
 	{
 		$this->db->select('*');
     	$this->db->from('filiere');
@@ -21,7 +21,23 @@ class My_Game extends CI_Model
 	{
 		$this->db->select('*');
     	$this->db->from('annee a');
-    	$this->db->join('filiere f', 'f.IdAnnee = a.IdAnnee');
+    	$this->db->join('filiere f', 'f.IdFiliere = a.IdFiliere');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_subject()
+	{
+		$this->db->select('*');
+    	$this->db->from('matiere');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function get_finals()
+	{
+		$this->db->select('*');
+    	$this->db->from('devoir');
 		$query = $this->db->get();
 		return $query->result();
 	}

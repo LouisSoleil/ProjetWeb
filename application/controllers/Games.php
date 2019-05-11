@@ -9,8 +9,10 @@ class Games extends CI_Controller {
 	}
 
 	public function index(){
-		$data['filieres'] = $this->m->get_filiere();
+		$data['sectors'] = $this->m->get_sector();
 		$data['years'] = $this->m->get_year();
+		$data['subjects'] = $this->m->get_subject();
+		$data['finals'] = $this->m->get_finals();
 		$this->load->view('templates/frontbar');
 		$this->load->view('Game', $data);
 	}

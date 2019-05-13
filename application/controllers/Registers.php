@@ -3,13 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Registers extends CI_Controller {
 
-	public function __contruct(){
-		parent:: __construct;
+	function __construct(){
+		parent:: __construct();
 		$this->load->model('My_Student');
+		$this->load->model('My_Game','m');
 	}
 	public function index(){
-		$this->load->view('templates/frontbar');
-		$this->load->view('Register');
+		$data['years'] = $this->m->get_year();
+		$this->load->view('templates/header');
+		$this->load->view('Register', $data);
 	}
 
 	public function enrol(){

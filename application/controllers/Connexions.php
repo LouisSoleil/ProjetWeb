@@ -8,7 +8,7 @@ class Connexions extends CI_Controller {
 		$this->load->model('My_Student');
 	}
 	public function index(){
-		$this->load->view('templates/frontbar');
+		$this->load->view('templates/header');
 		$this->load->view('Connexion');
 	}
 }

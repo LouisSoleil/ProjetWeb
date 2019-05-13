@@ -1,4 +1,5 @@
-<body>
+<link rel="stylesheet" href="/ProjetWeb/application/assets/Register.css">
+</head><body>
 	<div class ="container">
 		<div class ="row">
 			<div class="col-sm-12">
@@ -7,7 +8,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<form method ="post" action ="<?php echo site_url('Registers/enrol')?>">
+				<form method ="post">
 				<div class="form-group">
 					<label for="NumEleve">Numéro étudiant :</label>
 					<input type="int" class="form-control" id="NumEleve" placeholder="Entre ton numéro étudiant">
@@ -37,14 +38,18 @@
 					<input type="charset" class="form-control" id="PseudoEleve" placeholder="Entre ton pseudo">
 				</div>
 				<div class="form-group">
-					<label for="IdAnnee">Classe :</label>
-						<input type="charset" class="form-control" id="IdAnnee" placeholder="Choisis ta classe">
-				</form>
+    				<label for="exampleFormControlSelect1">Classe</label>
+    				<select class="form-control" id="ClasseEleve">
+				     <?php foreach($years as $year) { ?>
+                  <option value="year"><?php echo $year->LibelleAnnee; ?></option>
+                	<?php }?>
+				    </select>
 				</div>
+				</form>
 			</div>
 		</div>
 		<div class="row">
-			<button type="button" class="btn btn-success">S'inscrire</button>
+			<button type="button" class="btn btn-success" href="/ProjetWeb/application/controllers/Registers/enrol()">S'inscrire</button>
 		</div>
 	</div>
 </body>

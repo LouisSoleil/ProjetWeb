@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="/ProjetWeb/application/assets/Game.css">
+</head>
+
 <body>
     <div class ="container">
         <div class="row"  >

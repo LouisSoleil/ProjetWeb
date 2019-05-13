@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
+</head>
+
 <body>
 <div class="container">
   <div class="row">

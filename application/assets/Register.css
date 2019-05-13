@@ -1,6 +1,6 @@
 .container{
 	text-align: center;
-    background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
+	background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
     border-radius: 5px;
     padding-bottom: 5px;
 }
@@ -8,4 +8,12 @@
 .form-group{
     color: #873600;
     text-align: left;
+}
+
+.checkbox{
+	text-align: left;
+}
+
+.form-control{
+	margin-right: auto;
 }

@@ -12,7 +12,7 @@ class Games extends CI_Controller {
 		$data['years'] = $this->g->get_year();
 		$data['subjects'] = $this->g->get_subject();
 		$data['finals'] = $this->g->get_finals();
-		$this->load->view('templates/frontbar');
+		$this->load->view('templates/header');
 		$this->load->view('Game', $data);
 	}
 }

@@ -13,12 +13,5 @@ class Registers extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('Register', $data);
 	}
-
-	public function enrol(){
-		$this->load->helper('form', 'url');
-		$this->load->library('form_validation');
-		$this->load->model('My_Student');
-
-	}
 }
 ?>

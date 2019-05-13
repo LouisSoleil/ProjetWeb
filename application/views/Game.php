@@ -39,23 +39,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <option value="three">Team</option>
               </select>
               <select class="form-control">
-                <?php foreach($sectors as $sector){ ?>
-                <option value="filiere"><?php echo $sector->LibelleFiliere; ?></option>
-                <?php $s = $this->input->get('filiere'); }?>
-              </select>
-              <select class="form-control">
                 <?php foreach($years as $year) { ?>
                   <option value="year"><?php echo $year->LibelleAnnee; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
                 <?php foreach($subjects as $subject) { ?>
-                  <option value="year"><?php echo $subject->TypeMatiere; ?></option>
+                  <option value="subject"><?php echo $subject->LibelleMatiere; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
                 <?php foreach($finals as $final) { ?>
-                  <option value="year"><?php echo $final->TypeDevoir; ?></option>
+                  <option value="final"><?php echo $final->TypeDevoir; ?></option>
                 <?php }?>
               </select>
               <button type="button" class="btn">Valider</button>

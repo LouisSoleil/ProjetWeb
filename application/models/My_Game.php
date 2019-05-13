@@ -9,19 +9,11 @@ class My_Game extends CI_Model
 	protected $table = 'annee';
 
 
-	public function get_sector()
-	{
-		$this->db->select('*');
-    	$this->db->from('filiere');
-		$query = $this->db->get();
-		return $query->result();
-	}
 
 	public function get_year()
 	{
 		$this->db->select('*');
-    	$this->db->from('annee a');
-    	$this->db->join('filiere f', 'f.IdFiliere = a.IdFiliere');
+    	$this->db->from('annee');
 		$query = $this->db->get();
 		return $query->result();
 	}

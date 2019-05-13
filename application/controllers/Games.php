@@ -5,14 +5,13 @@ class Games extends CI_Controller {
 
 	function __construct(){
 		parent:: __construct();
-		$this->load->model('My_Game', 'm');
+		$this->load->model('My_Game', 'g');
 	}
 
 	public function index(){
-		$data['sectors'] = $this->m->get_sector();
-		$data['years'] = $this->m->get_year();
-		$data['subjects'] = $this->m->get_subject();
-		$data['finals'] = $this->m->get_finals();
+		$data['years'] = $this->g->get_year();
+		$data['subjects'] = $this->g->get_subject();
+		$data['finals'] = $this->g->get_finals();
 		$this->load->view('templates/frontbar');
 		$this->load->view('Game', $data);
 	}

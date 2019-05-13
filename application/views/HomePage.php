@@ -1,17 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Winaboire</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
-  <link rel="stylesheet" href="/ProjetWeb/application/assets/General.css">
-</head>
 <body>
 <div class="container">
   <div class="row">
@@ -19,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <h1>Bienvenue sur BetDrink</h1>
     </div>
   </div>
+  <div class="row">
     <div class="col-sm-12">
       <h3>Quelle est le but du jeu ?</h3>
       <p id="pHP">C'est la fin du mois et ton compte en banque cri famine ? Mais tu veux quand même sortir jeudi ?</p>
@@ -30,10 +17,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <li>Ensuite, choisis ta section ainsi que ta classe ci-contre.</li>
       <li>Puis, tu rentre le nom des joueurs avec qui tu veux jouer.</li>
     </div>
+  </div>
     <div class="row">
       <a href ="Games"><button type="button" class="btn btn-success btn-lg btn-block">C'est Partie !!</button></a>
     </div>
-  </div>
 </div>
 </body>
 </html>

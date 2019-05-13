@@ -9,11 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/Register.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/General.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/Game.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/HomePage.css">
+  <link rel="stylesheet" href="/ProjetWeb/application/assets/Ranking.css">
 
-
-<body>
-  <nav class="navbar navbar-inverse">
+   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -36,5 +38,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </div>
 </nav>
-
-</body>
+</head>

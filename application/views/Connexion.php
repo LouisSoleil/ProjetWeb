@@ -7,22 +7,22 @@
 				<h2>Connexion</h2>
 			</div>
 		</div>
-				<?php echo form_open('Users/login', array('class' => 'form_horizontal')) ?>
-					<div class="form-group">
-						<label for="Email">Ton Mail :</label>
-						<?php echo form_input(array ('Email' => 'usermail', 'id' => 'Email','class' => 'form_control' )); ?>
-					</div>
-					<div class="form-group">
-						<label for="MDP">Ton Mot de Passe :</label>
-						<?php echo form_input(array ('MDP' => 'password', 'id' => 'MDP', 'class' => 'form_control' )); ?>
-					</div>
-				<div class="checkbox">
-   		 			<label><input type="checkbox"> Se souvenir de moi</label>
-  				</div>
+		<form method ="post" action ="<?php echo site_url('Users/login')?>">
+			<div class="form-group">
+				<label for="Connexion">Ton Mail :</label>
+				<input type="email" class="form-control" name="EmailEleve" placeholder="Entre ton mail universitaire"required>
+			</div>
+			<div class="form-group">
+				<label for="Connexion">Ton Mot de Passe :</label>
+				<input type="password" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe" required>
+			</div>
+			<div class="checkbox">
+	 			<label><input type="checkbox"> Se souvenir de moi</label>
+			</div>
 		<div class="row">
-			<button type="button" class="btn btn-success">Se connecter</button>
+			<button type="Submit" class="btn btn-success" value="save">Se connecter</button>
 		</div>
-		<?php form_close();?>
+		</form>
 		<div class="row">
 			<p><a href="/ProjetWeb/Registers">S'inscrire</a></p>
 		</div>

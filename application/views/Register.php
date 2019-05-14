@@ -20,11 +20,11 @@
 				</div>
 				<div class="form-group">
 					<label for="Register">Mot de passe :</label>
-					<input type="charset" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe">
+					<input type="password" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe">
 				</div>
 				<div class="form-group">
 					<label for="Register">Confirmation Mot de passe :</label>
-					<input type="charset" class="form-control" name="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
+					<input type="password" class="form-control" name="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
 				</div>
 				<div class="form-group">
 					<label for="Register">Nom :</label>
@@ -40,12 +40,15 @@
 				</div>
 				<div class="form-group">
 					<label for="Register">Classe :</label>
-					<input type="charset" class="form-control" name="IdAnnee" placeholder="Entre ta classe">
+					<input type="charset" class="form-control" name="IdAnnee" placeholder="Entre ta classe (ex : IG3)">
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">S'inscrire</button>
 				</div>
-				</form>
+			</form>
+				<div class="row">
+				<button type="button" class="btn btn-success" href="<?php echo site_url('Users/edit'); ?>/<?php echo $row->id; ?>">Mon profil</button>
+				</div>
 			</div>
 		</div>
 	</div>

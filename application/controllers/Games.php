@@ -15,5 +15,6 @@ class Games extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('Game', $data);
 	}
+
 }
 ?>

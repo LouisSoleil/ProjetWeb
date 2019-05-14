@@ -20,7 +20,7 @@
       		<tr>
         	<td>1</td>
         	<td><?php echo $student->PseudoEleve; ?></td>
-        	<td><?php echo $student->LibelleAnnee; ?></td>
+        	<td><?php echo $student->IdAnnee; ?></td>
       		</tr>
     	</tbody>
       <?php 

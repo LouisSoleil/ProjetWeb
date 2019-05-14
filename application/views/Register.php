@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/ProjetWeb/application/assets/Register.css">
-</head><body>
+</head>
+<body>
 	<div class ="container">
 		<div class ="row">
 			<div class="col-sm-12">
@@ -7,49 +8,45 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-12">
-				<form method ="post">
+			<div class="col-sm-12"> 
+				<form method ="post" action ="<?php echo site_url('Users/create')?>">
 				<div class="form-group">
-					<label for="NumEleve">Numéro étudiant :</label>
-					<input type="int" class="form-control" id="NumEleve" placeholder="Entre ton numéro étudiant">
+					<label for="Register">Numéro étudiant :</label>
+					<input type="int" class="form-control" name="NumEleve" placeholder="Entre ton numéro étudiant">
 				</div>
 				<div class="form-group">
-					<label for="EmailEleve">Email :</label>
-					<input type="email" class="form-control" id="EmailEleve" placeholder="Entre ton mail universitaire">
+					<label for="Register">Email :</label>
+					<input type="email" class="form-control" name="EmailEleve" placeholder="Entre ton mail universitaire">
 				</div>
 				<div class="form-group">
-					<label for="MDPEleve1">Mot de passe :</label>
-					<input type="charset" class="form-control" id="MDPEleve1" placeholder="Entre ton mot de passe">
+					<label for="Register">Mot de passe :</label>
+					<input type="charset" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe">
 				</div>
 				<div class="form-group">
-					<label for="MDPEleve2">Confirmation Mot de passe :</label>
-					<input type="charset" class="form-control" id="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
+					<label for="Register">Confirmation Mot de passe :</label>
+					<input type="charset" class="form-control" name="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
 				</div>
 				<div class="form-group">
-					<label for="NomEleve">Nom :</label>
-					<input type="charset" class="form-control" id="NomEtu" placeholder="Entre ton nom">
+					<label for="Register">Nom :</label>
+					<input type="charset" class="form-control" name="NomEleve" placeholder="Entre ton nom">
 				</div>
 				<div class="form-group">
-					<label for="PrenomEleve">Prénom :</label>
-					<input type="charset" class="form-control" id="PrenomEleve" placeholder="Entre ton prénom">
+					<label for="Register">Prénom :</label>
+					<input type="charset" class="form-control" name="PrenomEleve" placeholder="Entre ton prénom">
 				</div>
 				<div class="form-group">
-					<label for="PseudoEleve">Pseudo :</label>
-					<input type="charset" class="form-control" id="PseudoEleve" placeholder="Entre ton pseudo">
+					<label for="Register">Pseudo :</label>
+					<input type="charset" class="form-control" name="PseudoEleve" placeholder="Entre ton pseudo">
 				</div>
 				<div class="form-group">
-    				<label for="exampleFormControlSelect1">Classe</label>
-    				<select class="form-control" id="ClasseEleve">
-				     <?php foreach($years as $year) { ?>
-                  <option value="year"><?php echo $year->LibelleAnnee; ?></option>
-                	<?php }?>
-				    </select>
+					<label for="Register">Classe :</label>
+					<input type="charset" class="form-control" name="IdAnnee" placeholder="Entre ta classe">
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-success" value="save">S'inscrire</button>
 				</div>
 				</form>
 			</div>
-		</div>
-		<div class="row">
-			<button type="button" class="btn btn-success" href="/ProjetWeb/application/controllers/Registers/enrol()">S'inscrire</button>
 		</div>
 	</div>
 </body>

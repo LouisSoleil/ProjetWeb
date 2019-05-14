@@ -23,7 +23,7 @@
               </select>
               <select class="form-control">
                 <?php foreach($years as $year) { ?>
-                  <option value="year"><?php echo $year->LibelleAnnee; ?></option>
+                  <option value="year"><?php echo $year->IdAnnee; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
@@ -33,7 +33,7 @@
               </select>
               <select class="form-control">
                 <?php foreach($finals as $final) { ?>
-                  <option value="final"><?php echo $final->TypeDevoir; ?></option>
+                  <option value="final"><?php echo $final->LibelleDevoir; ?></option>
                 <?php }?>
               </select>
               <button type="button" class="btn">Valider</button>

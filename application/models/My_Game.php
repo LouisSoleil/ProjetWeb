@@ -33,5 +33,24 @@ class My_Game extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function create_game(){
+		
+	}
+
+
+	public function read_game(){
+		
+	}
+
+
+	public function upgrade_game(){
+		
+	}
+
+
+	public function delete_game(){
+		
+	}
 }
 ?>

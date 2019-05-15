@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a href="#">Matières</a></li>
         <li><a href="#">A propos</a></li>
         <li><a href="#">Mon historique</a></li>
-        <li><a href="#">Modifier mon compte</a></li>
+        <li><a href="<?php echo site_url('Users/edit');?>/<?php echo $row->id;?>">Modifier mon compte</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>

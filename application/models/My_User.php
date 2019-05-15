@@ -24,9 +24,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query-> result();
 		}
 
-		public function get_data($id){
-			$query = $this->db->query('SELECT * FROM eleve WHERE `id` =' .$id);
-			return $query->row();
+		function get_data($id){
+			$query = $this->db->query('SELECT * FROM eleve WHERE `NumEleve` =' .id);
+			return $query-> row();
+		}
+
+		public function get_NumEleve(){
+			$this->load->database();
+	        $this->db->select('*');
+	        $this->db->from('eleve');
+	        $this->db->where('NumEleve', $_COOKIE['NumEleve']);
+	        $query = $this->db->get();
+			return $query;
 			}
 
 		public function getByMail($mail) {

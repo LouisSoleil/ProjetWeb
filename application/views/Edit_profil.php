@@ -10,17 +10,15 @@
 		<div class="row">
 			<div class="col-sm-12"> 
 				<form method ="post" action ="<?php echo site_url('Users/edit')?>">
+				<?php foreach($result as $row) ?>
 				<div class="form-group">
-					<label for="Register">Numéro étudiant :</label>
-					<input type="int" class="form-control" name="NumEleve" value="<?php echo $row->NumEleve ?>" placeholder="Entre ton numéro étudiant">
+					<?php echo $row->NumEleve; ?>
+				</div> 
+				<div class="form-group">
+					<?php echo $row->EmailEleve; ?>
 				</div>
 				<div class="form-group">
-					<label for="Register">Email :</label>
-					<input type="email" class="form-control" name="EmailEleve" value="<?php echo $row->EmailEleve ?>" placeholder="Entre ton mail universitaire">
-				</div>
-				<div class="form-group">
-					<label for="Register">Ancien mot de passe :</label>
-					<input type="charset" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe">
+					<?php echo $row->MDPEleve; ?>
 				</div>
 				<div class="form-group">
 					<label for="Register"> Nouveau mot de passe :</label>
@@ -31,20 +29,16 @@
 					<input type="charset" class="form-control" name="MDPEleveN2" placeholder="Entre à nouveau ton mot de passe">
 				</div>
 				<div class="form-group">
-					<label for="Register">Nom :</label>
-					<input type="charset" class="form-control" name="NomEleve" value="<?php echo $row->NomEleve ?>"placeholder="Entre ton nom">
+					<?php echo $row->NomEleve; ?>
 				</div>
 				<div class="form-group">
-					<label for="Register">Prénom :</label>
-					<input type="charset" class="form-control" name="PrenomEleve" value="<?php echo $row->PrenomEleve ?>"placeholder="Entre ton prénom">
+					<?php echo $row->PrenomEleve; ?>
 				</div>
 				<div class="form-group">
-					<label for="Register">Pseudo :</label>
-					<input type="charset" class="form-control" name="PseudoEleve" value="<?php echo $row->PseudoEleve ?>" placeholder="Entre ton pseudo">
+					<?php echo $row->PseudoEleve; ?>
 				</div>
 				<div class="form-group">
-					<label for="Register">Classe :</label>
-					<input type="charset" class="form-control" name="IdAnnee" value="<?php echo $row->IdAnnee ?>"placeholder="Entre ta classe (ex : IG3)">
+					<?php echo $row->IdAnnee; ?>
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">Enregistrer</button>

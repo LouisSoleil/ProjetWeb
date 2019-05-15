@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct(){
 			parent:: __construct();
 			$this->load->model('My_User');
+			$this->load->model('My_Student');
+			$this->load->model('My_Game');
 		}
 
 		public function index() {
@@ -16,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	            echo "vous n'êtes plus connecté";
 	            $data['title'] = 'connexion';
 	            $this->load->view('templates/header', $data);
-	            $this->load->view('HomePage');
+	            $this->load->view('Connexion');
 	        }
     	}
 
@@ -27,10 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 
-		public function edit($id) {
+		public function edit() {
+			$id = $_COOKIE['NumEleve'];
+			var_dump($id);
 			$data['row'] = $this->My_User->get_data($id);
-			$this->load->view('templates/header');
-			$this->load->view('Edit_profil', $data);
+			$this->load->view('templates/header2', $data);
+			$this->load->view('Edit_profil');
 		}
 
 		public function login() {
@@ -51,6 +55,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	                $this->index();
 	            }
 	        }
-		}       
+		} 
+
+		public function welcome()
+		{
+			$this->load->view('templates/header2');
+			$this->load->view('HomePage');
+		}
+
+		public function Rankings(){
+		$data['students'] = $this->My_Student->get_student();
+		$this->load->view('templates/header2');
+		$this->load->view('Ranking', $data);
+		}
+
+		public function Games(){
+		$data['years'] = $this->My_Game->get_year();
+		$data['subjects'] = $this->My_Game->get_subject();
+		$data['finals'] = $this->My_Game->get_finals();
+		$this->load->view('templates/header2');
+		$this->load->view('Game', $data);
+	}
+
 	}
 ?>

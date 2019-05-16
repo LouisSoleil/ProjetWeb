@@ -10,7 +10,7 @@ class My_Cookie extends CI_Model
     {
         $token = password_hash($token, PASSWORD_DEFAULT);
         $data = array(
-            'NumEleve' => $idUser,
+            'PseudoEleve' => $idUser,
             'token' => $token
         );
         $this->db->insert('tokeneleve', $data);
@@ -22,7 +22,7 @@ class My_Cookie extends CI_Model
         $data = json_decode($cookie, true);
         if (isset($cookie)) {
             $token = $data['token'];
-            $idUser = $data['NumEleve'];
+            $idUser = $data['PseudoEleve'];
             $query = $this->db->query('SELECT token FROM tokeneleve WHERE idUser = ?', $idUser);
             $result = $query->result_array();
             foreach ($result as $t) {
@@ -41,8 +41,8 @@ class My_Cookie extends CI_Model
         $data = json_decode($cookie, true);
         if (isset($cookie)) {
             $token = $data['token'];
-            $idUser = $data['NumEleve'];
-            $query = $this->db->query('SELECT token FROM tokeneleve WHERE NumEleve = ?', $idUser);
+            $idUser = $data['PseudoEleve'];
+            $query = $this->db->query('SELECT token FROM tokeneleve WHERE PseudoEleve = ?', $idUser);
             $result = $query->result_array();
             foreach ($result as $t) {
                 if (password_verify($token, $t['token'])) {
@@ -60,8 +60,8 @@ class My_Cookie extends CI_Model
         $data = json_decode($cookie, true);
         if (isset($cookie)) {
             $token = $data['token'];
-            $idUser = $data['NumEleve'];
-            $query = $this->db->query('SELECT token FROM tokeneleve WHERE NumEleve = ?', $idUser);
+            $idUser = $data['PseudoEleve'];
+            $query = $this->db->query('SELECT token FROM tokeneleve WHERE PseudoEleve = ?', $idUser);
             $result = $query->result_array();
             foreach ($result as $t) {
                 if (password_verify($token, $t['token'])) {

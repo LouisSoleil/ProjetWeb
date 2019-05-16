@@ -8,7 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		public function create_user($encrypted){
 			$data = array(
-				'NumEleve' => $this->input->post('NumEleve'),
 				'NomEleve' => $this->input->post('NomEleve'),
 				'PrenomEleve' => $this->input->post('PrenomEleve'),
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
@@ -26,20 +25,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function get_data($id){
-			$query = $this->db->query('SELECT * FROM eleve WHERE `NumEleve` = ?', $id);
+			$query = $this->db->query('SELECT * FROM eleve WHERE `PseudoEleve` = ?', $id);
 			return $query-> row();
 		}
 
 		function get_token($id){
-			$query = $this->db->query('SELECT * FROM TokenEleve WHERE `token` = ?', $id);
+			$query = $this->db->query('SELECT * FROM tokeneleve WHERE `token` = ?', $id);
 			return $query->result();
 		}
 
-		public function get_NumEleve(){
+		public function get_PseudoEleve(){
 			$this->load->database();
 	        $this->db->select('*');
 	        $this->db->from('eleve');
-	        $this->db->where('NumEleve', $_COOKIE['NumEleve']);
+	        $this->db->where('PseudoEleve', $_COOKIE['PseudoEleve']);
 	        $query = $this->db->get();
 			return $query;
 		}
@@ -65,12 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $mail = $this->input->post('EmailEleve');
         $mail = html_escape($mail);
         $password = $this->input->post('MDPEleve');
-        /* Validate password */
         $query = $this->db->query('select eleve.MDPEleve from user where eleve.EmailEleve = ?',$mail);
         $pass = $query->row_array();
         if(isset($pass['MDPEleve'])){
-            if(password_verify($password,$pass['mdp'])){
-                $queryId = $this->db->query('select eleve.NumEleve as id from user where EmailEleve=?',$mail);
+            if(password_verify($password,$pass['MDPEleve'])){
+                $queryId = $this->db->query('select eleve.PseudoEleve as id from user where EmailEleve=?',$mail);
                 $idUser = $queryId->row_array();
                 return $idUser['id'];
             } else {
@@ -79,13 +77,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
     }
 
-		public function update_user(){
-			
-		}
+    public function get_user(){
+		$this->db->select('*');
+    	$this->db->from('eleve e');
+    	$this->db->join('annee a', 'e.IdAnnee = a.IdAnnee');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
-		public function delete_user(){
-			
-		}
+	public function update_user(){
+		
+	}
+
+	public function delete_user(){
+		
+	}
 
 }
 

@@ -38,8 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else{
             	$encrypted = password_hash(($this->input->post('MDPEleve')), PASSWORD_BCRYPT);
                 $this->My_User->create_user($encrypted);
-                $this->load->view('templates/header2');
-                $this->load->view('HomePage');
+                redirect('Welcome/welcome2');
 			}
 		}
 

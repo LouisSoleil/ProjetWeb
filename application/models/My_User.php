@@ -60,30 +60,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return $query->result();
         }
 
-        public function login(){
-        $mail = $this->input->post('EmailEleve');
-        $mail = html_escape($mail);
-        $password = $this->input->post('MDPEleve');
-        $query = $this->db->query('select eleve.MDPEleve from user where eleve.EmailEleve = ?',$mail);
-        $pass = $query->row_array();
-        if(isset($pass['MDPEleve'])){
-            if(password_verify($password,$pass['MDPEleve'])){
-                $queryId = $this->db->query('select eleve.PseudoEleve as id from user where EmailEleve=?',$mail);
-                $idUser = $queryId->row_array();
-                return $idUser['id'];
-            } else {
-                return false;
-            }
-                    }
-    }
 
-    public function get_user(){
-		$this->db->select('*');
-    	$this->db->from('eleve e');
-    	$this->db->join('annee a', 'e.IdAnnee = a.IdAnnee');
-		$query = $this->db->get();
-		return $query->result();
-	}
+        public function login(){
+	        $idLogged = $this->My_Cookie->isLoggedIn();
+	        if (!(isset($idLogged))) {
+	            $this->form_validation->set_rules('EmailEleve', 'Email', 'required|valid_email');
+	            $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
+	            if ($this->form_validation->run() === FALSE) {
+	                $this->load->view('templates/header');
+	                $this->load->view('connexion');
+	            } 
+	            else {
+	                if ($this->My_User->login()) {
+	                    $idUser = $this->My_User->login();
+	                    $cstrong = true;
+	                    $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+	                    $values = array(
+	                        'PseudoEleve' => $idUser,
+	                        'token' => $token
+	                    );
+	                    $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
+	                    $this->My_Cookie->setCookie($idUser, $token);
+	                    redirect('Welcome/welcome2');
+	                } else {
+	                    //faire des views d'erreur
+	                }
+	            }
+	        } 
+	        else {
+	            redirect('Welcome/welcome2');
+	        }
+	    }
+
+	    public function get_user(){
+			$this->db->select('*');
+	    	$this->db->from('eleve e');
+	    	$this->db->join('annee a', 'e.IdAnnee = a.IdAnnee');
+			$query = $this->db->get();
+			return $query->result();
+		}
+
 
 	public function update_user(){
 		

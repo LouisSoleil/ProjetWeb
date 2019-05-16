@@ -35,8 +35,17 @@ class My_Game extends CI_Model
 	}
 
 	public function create_game(){
-		
-	}
+		$data = array(
+			'NomEleve' => $this->input->post('NomEleve'),
+			'PrenomEleve' => $this->input->post('PrenomEleve'),
+			'PseudoEleve' => $this->input->post('PseudoEleve'),
+			'EmailEleve' => $this->input->post('EmailEleve'),
+			'MDPEleve' => $encrypted,
+			'IdAnnee' => $this->input->post('IdAnnee'),
+		);
+		$data = html_escape($data);
+		$this->db->insert('eleve', $data);
+		}
 
 
 	public function read_game(){

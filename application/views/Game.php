@@ -14,29 +14,31 @@
             </div>
         </div>
           <div class="row">
-            <form class="form-inline">
+            <form class="form-inline" action ="<?php echo site_url('Games/create')?>">
               <select class="form-control">
-                // mode de jeu
                 <option value="one">Only One</option>
                 <option value="two">All in</option>
                 <option value="three">Team</option>
               </select>
               <select class="form-control">
                 <?php foreach($years as $year) { ?>
-                  <option value="year"><?php echo $year->IdAnnee; ?></option>
+                  <option value="year" id="year"><?php echo $year->IdAnnee; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
                 <?php foreach($subjects as $subject) { ?>
-                  <option value="subject"><?php echo $subject->LibelleMatiere; ?></option>
+                  <option value="subject" id="subject"><?php echo $subject->LibelleMatiere; ?></option>
                 <?php }?>
               </select>
               <select class="form-control">
                 <?php foreach($finals as $final) { ?>
-                  <option value="final"><?php echo $final->LibelleDevoir; ?></option>
-                <?php }?>
+                  <option value="final" id="final"><?php echo $final->LibelleDevoir; ?></option>
+                  <?php }?>
               </select>
-              <button type="button" class="btn">Valider</button>
+              <div class="form-group">
+                  <input type='date' id="date" min="2018-05-15" ></input> 
+              </div>
+              <button type="submit" class="save">Valider</button>
             </form>
           </div>
         </div>

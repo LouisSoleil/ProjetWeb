@@ -25,7 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <ul class="nav navbar-nav">
         <li><a href="Welcome">Acceuil</a></li>
         <li><a href="Rankings">Classement</a></li>
-        <li><a href="#">Matières</a></li>
         <li><a href="#">A propos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

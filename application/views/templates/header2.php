@@ -25,9 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <ul class="nav navbar-nav">
         <li><a href="Welcome">Acceuil</a></li>
         <li><a href="Rankings">Classement</a></li>
-        <li><a href="#">Matières</a></li>
+        <li><a href="#">Mes Parties</a></li>
+        <li><a href="<?php echo site_url('Users/edit');?>/<?php echo $row->id;?>">Modifier mon compte</a></li>
         <li><a href="#">A propos</a></li>
-        <li><a href="#">Mon historique</a></li>
+        <li><a href="#">Mes Parties</a></li>
         <li><a href="<?php echo site_url('Users/edit');?>/<?php echo $row->id;?>">Modifier mon compte</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

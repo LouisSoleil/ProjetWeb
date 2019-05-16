@@ -12,43 +12,40 @@
 				<form method ="post" action ="<?php echo site_url('Users/create')?>">
 				<div class="form-group">
 					<label for="Register">Numéro étudiant :</label>
-					<input type="int" class="form-control" name="NumEleve" placeholder="Entre ton numéro étudiant">
+					<input type="int" class="form-control" name="NumEleve" id="NumEleve" placeholder="Entre ton numéro étudiant">
 				</div>
 				<div class="form-group">
 					<label for="Register">Email :</label>
-					<input type="email" class="form-control" name="EmailEleve" placeholder="Entre ton mail universitaire">
+					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire">
 				</div>
 				<div class="form-group">
 					<label for="Register">Mot de passe :</label>
-					<input type="password" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe">
+					<input type="password" class="form-control" name="MDPEleve" id="MDPEleve" placeholder="Entre ton mot de passe">
 				</div>
 				<div class="form-group">
 					<label for="Register">Confirmation Mot de passe :</label>
-					<input type="password" class="form-control" name="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
+					<input type="password" class="form-control" name="MDPEleve2" id="MDPEleve2" placeholder="Entre à nouveau ton mot de passe">
 				</div>
 				<div class="form-group">
 					<label for="Register">Nom :</label>
-					<input type="charset" class="form-control" name="NomEleve" placeholder="Entre ton nom">
+					<input type="charset" class="form-control" name="NomEleve" id="NomEleve" placeholder="Entre ton nom">
 				</div>
 				<div class="form-group">
 					<label for="Register">Prénom :</label>
-					<input type="charset" class="form-control" name="PrenomEleve" placeholder="Entre ton prénom">
+					<input type="charset" class="form-control" name="PrenomEleve" id="PrenomEleve" placeholder="Entre ton prénom">
 				</div>
 				<div class="form-group">
 					<label for="Register">Pseudo :</label>
-					<input type="charset" class="form-control" name="PseudoEleve" placeholder="Entre ton pseudo">
+					<input type="charset" class="form-control" name="PseudoEleve" id="PseudoEleve" placeholder="Entre ton pseudo">
 				</div>
 				<div class="form-group">
 					<label for="Register">Classe :</label>
-					<input type="charset" class="form-control" name="IdAnnee" placeholder="Entre ta classe (ex : IG3)">
+					<input type="charset" class="form-control" name="IdAnnee" id="NumEleve" placeholder="Entre ta classe (ex : IG3)">
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">S'inscrire</button>
 				</div>
 			</form>
-				<div class="row">
-				<button type="button" class="btn btn-success" href="<?php echo site_url('Users/edit'); ?>/<?php echo $row->id; ?>">Mon profil</button>
-				</div>
 			</div>
 		</div>
 	</div>

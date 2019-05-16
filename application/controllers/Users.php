@@ -7,10 +7,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->model('My_User');
 			$this->load->model('My_Student');
 			$this->load->model('My_Game');
+			$this->load->model('My_Cookie');
 		}
 
 		public function index() {
-	        if (isset($_COOKIE['IdEleve']) && isset($_COOKIE['MDPEleve'])) {
+	        if (isset($_COOKIE['NumEleve']) && isset($_COOKIE['MDPEleve'])) {
 	            $this->load->view('templates/header2');
 	            $this->load->view('HomePage');
 	        } 
@@ -23,39 +24,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	}
 
 		function create(){
-			$this->My_User->create_user();
-			$this->load->view('templates/header');
-			$this->load->view('Connexion');
+            $this->form_validation->set_rules('NumEleve', 'Numéro Etudiant', 'required|min_length[8]|max_length[8]');
+            $this->form_validation->set_rules('EmailEleve', 'Mail Etudiant', 'required|valid_email|is_unique[eleve.EmailEleve]');
+            $this->form_validation->set_rules('MDPEleve', 'Mot de passe', 'required|min_length[7]');
+            $this->form_validation->set_rules('MDPEleve2', 'Confirm Password', 'required|matches[MDPEleve]');
+            $this->form_validation->set_rules('PrenomEleve', 'Prénom', 'required');
+            $this->form_validation->set_rules('NomEleve', 'Nom', 'required');
+            $this->form_validation->set_rules('PseudoEleve', 'Pseudo', 'required');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('templates/header');
+                $this->load->view('Users/register');
+            } 
+            else{
+            	$encrypted = password_hash(($this->input->post('MDPEleve')), PASSWORD_BCRYPT);
+                $this->My_User->create_user($encrypted);
+                $this->load->view('templates/header2');
+                $this->load->view('HomePage');
+			}
 		}
-		
 
 		public function edit() {
 			$id = $_COOKIE['NumEleve'];
 			var_dump($id);
-			$data['row'] = $this->My_User->get_data($id);
+			$data['row'] = $this->My_User->get_token($id);
 			$this->load->view('templates/header2', $data);
 			$this->load->view('Edit_profil');
 		}
 
-		public function login() {
-			$user = $this->My_User->getByMail($_POST['EmailEleve']);
-			$name = $this->My_User->getPseudoByMail($_POST['EmailEleve']);
-	        $mdpUser = $_POST['MDPEleve'];
-	        if ($user == null) {
-	            $this->load->view('Connexion');
-	        } 
-	        else {
-	            $data['user'] = $user;
-	            $idUser = $user[0]->NumEleve;
-	            $mdpUser = $user[0]->MDPEleve;
-	            if ($data['user'] != NULL) {
-	                $this->session->set_userdata(array('username' => $name));
-	                setcookie('IdEleve', $idUser, time() + 3600, '/');
-	                setcookie('MDPEleve', $mdpUser, time() + 3600, '/');
-	                $this->index();
-	            }
-	        }
-		} 
+		
+
+		public function login1()
+    {
+        $idLogged = $this->My_Cookie->isLoggedIn();
+        if (!(isset($idLogged))) {
+            $this->form_validation->set_rules('EmailEleve', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('templates/header');
+                $this->load->view('Users/login1');
+            } else {
+                if ($this->My_User->login()) {
+                    //SET COOKIE
+                    $idUser = $this->My_User->login();
+                    $cstrong = true;
+                    $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+                    $values = array(
+                        'NumEleve' => $idUser,
+                        'token' => $token
+                    );
+                    $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
+                    $this->My_Cookie->setCookie($idUser, $token);
+                    redirect('index');
+                } else {
+                    //SHOW ERROR WRONG PASSWORD OR EMAIL
+                    $this->load->view('templates/header');
+                    $this->load->view('Users/login1');
+                }
+            }
+        } else {
+            redirect('posts');
+        }
+    }
 
 		public function welcome()
 		{
@@ -68,14 +98,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('templates/header2');
 		$this->load->view('Ranking', $data);
 		}
-
-		public function Games(){
-		$data['years'] = $this->My_Game->get_year();
-		$data['subjects'] = $this->My_Game->get_subject();
-		$data['finals'] = $this->My_Game->get_finals();
-		$this->load->view('templates/header2');
-		$this->load->view('Game', $data);
-	}
 
 	}
 ?>

@@ -7,14 +7,14 @@
 				<h2>Connexion</h2>
 			</div>
 		</div>
-		<form method ="post" action ="<?php echo site_url('Users/login')?>">
+		<form method ="post" action ="<?php echo site_url('Users/login1')?>">
 			<div class="form-group">
 				<label for="Connexion">Ton Mail :</label>
-				<input type="email" class="form-control" name="EmailEleve" placeholder="Entre ton mail universitaire"required>
+				<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire"required>
 			</div>
 			<div class="form-group">
 				<label for="Connexion">Ton Mot de Passe :</label>
-				<input type="password" class="form-control" name="MDPEleve" placeholder="Entre ton mot de passe" required>
+				<input type="password" class="form-control" name="MDPEleve" id="MDPEleve" placeholder="Entre ton mot de passe" required>
 			</div>
 			<div class="checkbox">
 	 			<label><input type="checkbox"> Se souvenir de moi</label>

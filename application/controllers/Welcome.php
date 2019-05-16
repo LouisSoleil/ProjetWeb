@@ -8,4 +8,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('HomePage');
 	}
+
+	public function welcome2()
+	{
+		$this->load->view('templates/header2');
+		$this->load->view('HomePage');
+	}
 }

@@ -11,10 +11,6 @@
 			<div class="col-sm-12"> 
 				<form method ="post" action ="<?php echo site_url('Users/create')?>">
 				<div class="form-group">
-					<label for="Register">Numéro étudiant :</label>
-					<input type="int" class="form-control" name="NumEleve" id="NumEleve" placeholder="Entre ton numéro étudiant">
-				</div>
-				<div class="form-group">
 					<label for="Register">Email :</label>
 					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire">
 				</div>
@@ -40,7 +36,7 @@
 				</div>
 				<div class="form-group">
 					<label for="Register">Classe :</label>
-					<input type="charset" class="form-control" name="IdAnnee" id="NumEleve" placeholder="Entre ta classe (ex : IG3)">
+					<input type="charset" class="form-control" name="IdAnnee" id="IdAnnee" placeholder="Entre ta classe (ex : IG3)">
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">S'inscrire</button>

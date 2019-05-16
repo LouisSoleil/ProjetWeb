@@ -25,17 +25,28 @@ class Games extends CI_Controller {
 	}
 
 	public function create(){
-		$this->form_validation->set_rules('years', 'Classe', 'required');
-        $this->form_validation->set_rules('subject', 'Mail Etudiant', 'required|valid_email|is_unique[eleve.EmailEleve]');
-        $this->form_validation->set_rules('final', 'Mot de passe', 'required|min_length[7]');
-        $this->form_validation->set_rules('date', 'Confirm Password', 'required|matches[MDPEleve]');
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
-            $this->load->view('Game');
-        } 
-        else{
-            redirect('Welcome/welcome2');
+		if (isset($_COOKIE['PseudoEleve']) && isset($_COOKIE['MDPEleve'])) {
+			$this->form_validation->set_rules('years', 'Classe', 'required');
+	        $this->form_validation->set_rules('subject', 'Mail Etudiant', 'required|valid_email|is_unique[eleve.EmailEleve]');
+	        $this->form_validation->set_rules('final', 'Mot de passe', 'required|min_length[7]');
+	        $this->form_validation->set_rules('date', 'Confirm Password', 'required|matches[MDPEleve]');
+	        if ($this->form_validation->run() === FALSE) {
+	            $this->load->view('templates/header');
+	            $this->load->view('Game');
+	        } 
+	        else{
+	        	$user=$_COOKIE['PseudoEleve'];
+	        	$this->My_Game->create_game($user);
+	            redirect('Welcome/welcome2');
+			}
 		}
+		else{
+			redirect('Users/login');
+		}
+	}
+
+	public function invite($game){
+
 	}
 
 }

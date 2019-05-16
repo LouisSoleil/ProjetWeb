@@ -38,7 +38,9 @@
               <div class="form-group">
                   <input type='date' id="date" min="2018-05-15" ></input> 
               </div>
-              <button type="submit" class="save">Valider</button>
+              <div class="form-group">
+                <button type="submit" class="save">Valider</button>
+              </div>
             </form>
           </div>
         </div>

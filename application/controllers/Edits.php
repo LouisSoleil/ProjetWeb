@@ -8,8 +8,10 @@ class Connexions extends CI_Controller {
 		$this->load->model('My_User');
 	}
 	public function index(){
-		$this->load->view('templates/header');
-		$this->load->view('Connexion');
+		$user=$this->My_Cookie->isLoggedIn();
+        $data ['Users']= $this->My_User->get_user($user);
+        $this->load->view('templates/header');
+        $this->load->view('Edit_profil', $data);
 	}
 }
 ?>

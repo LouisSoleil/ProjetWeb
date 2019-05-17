@@ -41,12 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 
-		public function edit() {
-			$user=$this->My_Cookie->isLoggedIn();
-            $data= $this->My_User->get_user($user);
-            var_dump($data);
-            $this->load->view('templates/header2');
-            $this->load->view('Edit_profil', $data);
+
+        public function update() {
+            $this->My_User->update_user();
+            $this->load->view('templates/header');
+            $this->load->view('HomePage');
         }
 
 		

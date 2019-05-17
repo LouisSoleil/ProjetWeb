@@ -8,40 +8,44 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-12"> 
+			<div class="col-sm-12">
 				<form method ="post" action ="<?php echo site_url('Users/edit')?>">
-				<?php foreach($result as $row) ?>
+				<?php if($Users) {?> 
 				<div class="form-group">
-					<?php echo $row->NumEleve; ?>
+					<label for="Register">Email :</label>
+					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" value ="<?php echo $Users[0]->EmailEleve; ?>" placeholder="<?php echo $Users[0]->EmailEleve; ?>">
 				</div> 
 				<div class="form-group">
-					<?php echo $row->EmailEleve; ?>
+					<label for="Register">Ancien Mot de passe :</label>
+					<input type="password" class="form-control" name="MDPEleve" id="MDPEleve" value ="<?php echo $Users[0]->MDPEleve; ?>" placeholder="Ne rien rentrer si tu ne veux pas le modifier">
 				</div>
 				<div class="form-group">
-					<?php echo $row->MDPEleve; ?>
+					<label for="Register">Nouveau Mot de passe :</label>
+					<input type="password" class="form-control" name="MDPEleveN" id="MDP" placeholder="Ne rien rentrer si tu ne veux pas le modifier">
 				</div>
 				<div class="form-group">
-					<label for="Register"> Nouveau mot de passe :</label>
-					<input type="charset" class="form-control" name="MDPEleveN" placeholder="Entre ton mot de passe">
+					<label for="Register"> Confirmer Nouveau Mot de passe :</label>
+					<input type="password" class="form-control" name="MDPEleveN" placeholder="Ne rien rentrer si tu ne veux pas le modifier">
 				</div>
 				<div class="form-group">
-					<label for="Register">Confirmation nouveau mot de passe :</label>
-					<input type="charset" class="form-control" name="MDPEleveN2" placeholder="Entre à nouveau ton mot de passe">
+					<label for="Register">Nom :</label>
+					<input type="charset" class="form-control" name="NomEleve" id="NomEleve" value ="<?php echo $Users[0]->NomEleve; ?>" placeholder="<?php echo $Users[0]->NomEleve; ?>">
 				</div>
 				<div class="form-group">
-					<?php echo $row->NomEleve; ?>
+					<label for="Register">Prénom :</label>
+					<input type="charset" class="form-control" name="PrenomEleve" id="PrenomEleve" value ="<?php echo $Users[0]->PrenomEleve; ?>" placeholder="<?php echo $Users[0]->PrenomEleve; ?>">
 				</div>
 				<div class="form-group">
-					<?php echo $row->PrenomEleve; ?>
+					<label for="Register">Pseudo :</label>
+					<input type="charset" class="form-control" name="PseudoEleve" id="PseudoEleve" value ="<?php echo $Users[0]->PseudoEleve; ?>" placeholder="<?php echo $Users[0]->PseudoEleve; ?>">
 				</div>
 				<div class="form-group">
-					<?php echo $row->PseudoEleve; ?>
+					<label for="Register">Classe :</label>
+					<input type="charset" class="form-control" name="Classe" id="Classe" value ="<?php echo $Users[0]->IdAnnee; ?>" placeholder="<?php echo $Users[0]->IdAnnee; ?>">
 				</div>
-				<div class="form-group">
-					<?php echo $row->IdAnnee; ?>
-				</div>
+				<?php }?>
 				<div class="row">
-					<button type="submit" class="btn btn-success" value="save">Enregistrer</button>
+					<button type="submit" href="<?php echo site_url('Users/update') ?>"class="btn btn-success" value="save">Enregistrer</button>
 				</div>
 				</form>
 			</div>

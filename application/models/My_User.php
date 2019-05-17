@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function get_user($id){
 			$query = $this->db->query('SELECT * FROM eleve WHERE PseudoEleve = ?', $id);
-			return $query-> row();
+			return $query-> result();
 		}
 
 		function get_token($id){
@@ -69,8 +69,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return $query->result();
         }
 
+
 		public function update_user(){
-			
+			$data = array(
+				'NomEleve' => $this->input->post('NomEleve'),
+				'PrenomEleve' => $this->input->post('PrenomEleve'),
+				'EmailEleve' => $this->input->post('EmailEleve'),
+			);
+			$data = html_escape($data);
+			var_dump($data);
+			$this->db->update('eleve', $data);
 		}
 
 		public function delete_user(){

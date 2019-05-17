@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li><a href="Welcome">Acceuil</a></li>
           <li><a href="Rankings">Classement</a></li>
           <li><a href="#">Mes Parties</a></li>
-          <li><a href="<?php echo site_url('Users/edit');?>">Modifier mon compte</a></li>
+          <li><a href="Edits">Modifier mon compte</a></li>
           <li><a href="#">Mes Parties</a></li>
           <li><a href="#">A propos</a></li>
         </ul>

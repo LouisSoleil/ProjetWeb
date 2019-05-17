@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function __construct(){
 			parent:: __construct();
 			$this->load->model('My_User');
-			$this->load->model('My_Student');
 			$this->load->model('My_Game');
 			$this->load->model('My_Cookie');
 		}
@@ -43,11 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function edit() {
-			$id = $_COOKIE['PseudoEleve'];
-			var_dump($id);
-			$data['row'] = $this->My_User->get_token($id);
-			$this->load->view('templates/header2', $data);
-			$this->load->view('Edit_profil');
+			
 		}
 
 		
@@ -59,38 +54,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
                 if ($this->form_validation->run() === FALSE) {
                     $this->load->view('templates/header');
-                    $this->load->view('Users/login1');
+                    $this->load->view('Users/login');
                 } 
                 else {
-                    if ($this->My_User->login()) {
-                        //SET COOKIE
-                        $idUser = $this->My_User->login();
-                        $cstrong = true;
-                        $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
-                        $values = array(
-                            'PseudoEleve' => $idUser,
-                            'token' => $token
-                        );
-                        $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
-                        $this->My_Cookie->setCookie($idUser, $token);
-                        redirect('Welcome/welcome2');
-                    } 
-                    else {
-                        //SHOW ERROR WRONG PASSWORD OR EMAIL
-                        $this->load->view('templates/header');
-                        $this->load->view('Users/login');
-                    }
+                    $idUser = $this->My_User->login();
+                    $cstrong = true;
+                    $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
+                    $values = array(
+                        'PseudoEleve' => $idUser,
+                        'token' => $token
+                    );
+                    $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
+                    $this->My_Cookie->setCookie($idUser, $token);
+                    redirect('Welcome/welcome2');
                 }
-            } else {
-                redirect('posts');
+            }
+            else {
+                redirect('Welcome/welcome2');
             }
     }
 
-		public function welcome()
-		{
-    		$this->load->view('templates/header2');
-    		$this->load->view('HomePage');
-		}
-
-	}
+}
 ?>

@@ -8,10 +8,10 @@ class My_Cookie extends CI_Model
 
     public function setCookie($idUser, $token)
     {
-        $token = password_hash($token, PASSWORD_DEFAULT);
+        $token2 = password_hash($token, PASSWORD_DEFAULT);
         $data = array(
             'PseudoEleve' => $idUser,
-            'token' => $token
+            'token' => $token2
         );
         $this->db->insert('tokeneleve', $data);
     }

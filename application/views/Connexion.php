@@ -7,7 +7,7 @@
 				<h2>Connexion</h2>
 			</div>
 		</div>
-		<form method ="post" action ="<?php echo site_url('Users/login1')?>">
+		<form method ="post" action ="<?php echo site_url('Users/login')?>">
 			<div class="form-group">
 				<label for="Connexion">Ton Mail :</label>
 				<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire"required>

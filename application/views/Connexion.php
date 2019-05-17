@@ -10,7 +10,7 @@
 		<form method ="post" action ="<?php echo site_url('Users/login')?>">
 			<div class="form-group">
 				<label for="Connexion">Ton Mail :</label>
-				<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire"required>
+				<input type="email" class="form-control" name="Email" id="Email" placeholder="Entre ton mail universitaire" required>
 			</div>
 			<div class="form-group">
 				<label for="Connexion">Ton Mot de Passe :</label>

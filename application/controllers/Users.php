@@ -35,29 +35,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->view('Users/register');
             } 
             else{
-            	$encrypted = password_hash(($this->input->post('MDPEleve')), PASSWORD_BCRYPT);
+            	$encrypted = crypt($_POST['MDPEleve'], 'md5');
                 $this->My_User->create_user($encrypted);
-                redirect('Welcome/welcome2');
+                redirect('Welcome');
 			}
 		}
 
 		public function edit() {
-			
-		}
+			$user=$this->My_Cookie->isLoggedIn();
+            $data= $this->My_User->get_user($user);
+            var_dump($data);
+            $this->load->view('templates/header2');
+            $this->load->view('Edit_profil', $data);
+        }
 
 		
 
 		public function login(){
             $idLogged = $this->My_Cookie->isLoggedIn();
             if (!(isset($idLogged))) {
-                $this->form_validation->set_rules('EmailEleve', 'Email', 'required|valid_email');
+                $this->form_validation->set_rules('Email', 'Email', 'required|valid_email');
                 $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
                 if ($this->form_validation->run() === FALSE) {
                     $this->load->view('templates/header');
                     $this->load->view('Users/login');
                 } 
                 else {
-                    $idUser = $this->My_User->login();
+                    $mail = $this->input->post('Email');
+                    $data = $this->My_User->getByMail($mail);
+                    if (password_verify($_POST['MDPEleve'], $data[0]->MDPEleve)){
+                    $idUser = $data[0]->PseudoEleve;
                     $cstrong = true;
                     $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                     $values = array(
@@ -66,13 +73,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     );
                     $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
                     $this->My_Cookie->setCookie($idUser, $token);
-                    redirect('Welcome/welcome2');
+                    redirect('Welcome');
+                }
+                    
+
+                    //remettre les cookies qui sont dans ranking
                 }
             }
             else {
-                redirect('Welcome/welcome2');
+                redirect('Welcome');
+            }
+        }
+
+            public function logout(){
+                $this->My_Cookie->deleteCookie();
+                redirect();
             }
     }
-
-}
 ?>

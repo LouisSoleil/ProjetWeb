@@ -11,26 +11,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/ProjetWeb/application/assets/General.css">
 
+  <?php $CI =& get_instance();
+  $this->load->model('My_Cookie');
+  if(!($this->My_Cookie->isLoggedIn())){ ?>
    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="Welcome">Acceuil</a></li>
+          <li><a href="Rankings">Classement</a></li>
+          <li><a href="#">A propos</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/ProjetWeb/Connexions"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="Welcome">Acceuil</a></li>
-        <li><a href="Rankings">Classement</a></li>
-        <li><a href="#">A propos</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/ProjetWeb/Connexions"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
-      </ul>
+  </nav>
+  <?php }
+  else {?>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="Welcome">Acceuil</a></li>
+          <li><a href="Rankings">Classement</a></li>
+          <li><a href="#">Mes Parties</a></li>
+          <li><a href="<?php echo site_url('Users/edit');?>">Modifier mon compte</a></li>
+          <li><a href="#">Mes Parties</a></li>
+          <li><a href="#">A propos</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<?php echo site_url('Users/logout');?>" ><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-
+  </nav>
+  <?php }?>

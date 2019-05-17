@@ -9,7 +9,7 @@ class Rankings extends CI_Controller {
 	}
 
 	public function index(){
-		$data['students'] = $this->s->get_user();
+		$data['students'] = $this->s->getAllData();
 		$this->load->view('templates/header');
 		$this->load->view('Ranking', $data);
 	}

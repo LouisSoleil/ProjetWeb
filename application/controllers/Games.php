@@ -37,7 +37,7 @@ class Games extends CI_Controller {
 	        else{
 	        	$user=$_COOKIE['PseudoEleve'];
 	        	$this->My_Game->create_game($user);
-	            redirect('Welcome/welcome2');
+	            redirect('Welcome');
 			}
 		}
 		else{

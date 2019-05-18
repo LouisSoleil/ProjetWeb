@@ -61,19 +61,13 @@ class My_Game extends CI_Model
 		$this->db->insert('partie', $data);
 	}
 
-	public function user_games(){
-		$id = $this->My_Cookie->IsLoggedIn();
-		if (!($id)){
-			redirect('Users');
+	public function user_games($id){
+		$this->db->select('*');
+		$this->db->from('partie');
+		$this->db->where('partie.PseudoEleve', $id);
+		$query = $this->db->get();
+		return $query ->result();
 		}
-		else{
-			$this->db->select('*');
-			$this->db->from('partie');
-			$this->db->where('partie.PseudoEleve', $id);
-			$query = $this->db->get();
-			return $query ->result();
-		}
-	}
 
 	public function get_game($id){
 		$this->db->select('*');
@@ -84,19 +78,33 @@ class My_Game extends CI_Model
 
 	}
 
-
-	public function get_guest($id){
+	public function get_guestByGame($id){
 		$this->db->select('*');
-		$this->db->from('invite');
-		$this->db->join('partie', 'partie.IdPartie = invite.IdPartie');
+		$this->db->from('inviter');
+		$this->db->where('inviter.IdPartie =', $id);
 		$query = $this->db->get();
 		return $query->result();	
 	}
 
-
-	public function upgrade_game(){
-		
+	public function get_FinalByGame($idP)
+	{
+		$this->db->select('*');
+    	$this->db->from('partie');
+    	$this->db->where('partie.IdPartie=', $idP);
+		$query = $this->db->get();
+		return $query->result();
 	}
+
+
+	public function add_player(){
+		$data = array(
+				'PseudoEleve' => $this->input->post('PseudoEleve'),
+				'NoteEstimee' => $this->input->post('NoteEstimee'),
+				'NoteFinale' => $this->input->post('NoteFinale'),
+			);
+			$data = html_escape($data);
+			$this->db->insert('inviter', $data);
+		} 
 
 
 	public function delete_game(){

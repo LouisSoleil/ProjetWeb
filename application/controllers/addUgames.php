@@ -9,9 +9,8 @@ class addUgames extends CI_Controller {
 		$this->load->model('My_Cookie');
 	}
 	public function index(){
-		$data['games'] = $this->My_Game->user_games();
 		$this->load->view('templates/header');
-		$this->load->view('addUgame', $data);
+		$this->load->view('addUgame');
 	}
 }
 ?>

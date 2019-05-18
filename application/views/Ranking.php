@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="/ProjetWeb/application/assets/Ranking.css">
 </head>
-
 <body>
 <div class="container">
 	<h2>Classement des meilleurs pronostiqueurs</h2>         

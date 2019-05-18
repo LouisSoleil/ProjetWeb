@@ -35,25 +35,19 @@ class Games extends CI_Controller {
 			}
 		else{
 	    	$this->My_Game->create_game1($user);
-	        redirect('invite', $data);
+	        redirect('Historics', $data);
 		}
 	}
 
 	public function invite(){
-
-	}
-
-	public function overwiew(){
-		$user = $this->My_Cookie->isLoggedIn();
-		if (!($user)){
-			redirect('Users');
-		}
-		else{
-			$all = $this->My_Game->get_guest($user);
-			$this->load->view('templates/header');
-			$this->load->view('Overview', $all);
-		}
-	}
-
+		$query = $this->My_User->get_user($_POST['PseudoEleve']);
+		if (!($querry)) {
+            redirect('Registers');
+        }
+        else{
+	        $this->My_Game->add_player();
+	        redirect('Welcome');
+	    }    		
+    }
 }
 ?>

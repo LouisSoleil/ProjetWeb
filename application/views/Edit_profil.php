@@ -42,8 +42,8 @@
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">Enregistrer</button>
 				</div>
+			<?php }?>
 				</form>
-				<?php }?>
 			</div>
 		</div>
 	</div>

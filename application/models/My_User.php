@@ -34,6 +34,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query->result();
 		}
 
+		function getYearByUser($user){
+			$this->db->select('*');
+			$this->db->from('eleve');
+			$this->db->join('matiere', 'matiere.IdAnnee = eleve.IdAnnee');
+			$this->db->where('PseudoEleve', $user);
+			$query = $this->db->get();
+			return $query -> result();
+			}
+
 		public function get_PseudoEleve(){
 			$this->load->database();
 	        $this->db->select('*');

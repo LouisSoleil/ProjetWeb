@@ -14,38 +14,23 @@
             </div>
         </div>
           <div class="row">
-            <form class="form-inline" action ="<?php echo site_url('Games/create')?>">
-              <select class="form-control">
-                <option value="one">Only One</option>
-                <option value="two">All in</option>
-                <option value="three">Team</option>
-              </select>
-              <select class="form-control">
+           <form class ='form-inline 'method ="post" action ="<?php echo site_url('Games/get_game')?>">
+            <?php if($years) {?>
+            <div class="form-group" >
+              <input type="charset" class="form-control" name="IdAnnee" id="IdAnnee" value ="<?php echo $years[0]->IdAnnee; ?>" >
+              <?php }?>
+            </div>
+            <select class="form-control" name ="IdMatiere" id ="IdMatiere" value="<?php echo $year->IdMatiere; ?>">
                 <?php foreach($years as $year) { ?>
-                  <option value="year" id="year"><?php echo $year->IdAnnee; ?></option>
+                  <option name="IdMatiere" id="IdMatiere" value="<?php echo $year->IdMatiere; ?>"><?php echo $year->IdMatiere; ?></option>
                 <?php }?>
-              </select>
-              <select class="form-control">
-                <?php foreach($subjects as $subject) { ?>
-                  <option value="subject" id="subject"><?php echo $subject->LibelleMatiere; ?></option>
-                <?php }?>
-              </select>
-              <select class="form-control">
-                <?php foreach($finals as $final) { ?>
-                  <option value="final" id="final"><?php echo $final->LibelleDevoir; ?></option>
-                  <?php }?>
-              </select>
-              <div class="form-group">
-                  <input type='date' id="date" min="2018-05-15" ></input> 
-              </div>
-              <div class="form-group">
-                <button type="submit" class="save">Valider</button>
-              </div>
-            </form>
-          </div>
+            </select>
+            <div class="form-group">
+              <button type="submit" class="btn" value="save">Valider</button>
+            </div>
+          </form>
         </div>
-    </div>
+      </div>
+  </div>
 </body>
 </html>
-
-

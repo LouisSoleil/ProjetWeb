@@ -47,9 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->database();
 	        $this->db->select('MDPELeve');
 	        $this->db->from('eleve');
-	        $this->db->where('EmailEleve', $id);
+	        $this->db->where('PseudoEleve', $id);
 	        $query = $this->db->get();
-			return $query;
+			return $query -> result();
 		}
 
 		public function getByMail($mail) {
@@ -70,15 +70,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
 
-		public function update_user(){
+		public function update_user($user){
 			$data = array(
 				'NomEleve' => $this->input->post('NomEleve'),
 				'PrenomEleve' => $this->input->post('PrenomEleve'),
 				'EmailEleve' => $this->input->post('EmailEleve'),
+				'IdAnnee' => $this->input->post('Classe'),
 			);
 			$data = html_escape($data);
-			var_dump($data);
-			$this->db->update('eleve', $data);
+			$this->db->where ('PseudoEleve', $user);
+			$this->db->update('eleve', $data,);
+		}
+
+		public function update_user1($user, $pwd2){
+			$data = array(
+				'NomEleve' => $this->input->post('NomEleve'),
+				'MDPELeve' => $pwd2,
+				'PrenomEleve' => $this->input->post('PrenomEleve'),
+				'EmailEleve' => $this->input->post('EmailEleve'),
+				'IdAnnee' => $this->input->post('Classe'),
+			);
+			$data = html_escape($data);
+			$this->db->where ('PseudoEleve', $user);
+			$this->db->update('eleve', $data,);
 		}
 
 		public function delete_user(){

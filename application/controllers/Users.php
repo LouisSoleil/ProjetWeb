@@ -43,9 +43,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         public function update() {
-            $this->My_User->update_user();
-            $this->load->view('templates/header');
-            $this->load->view('HomePage');
+            $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
+            $user = $this->My_Cookie->isLoggedIn();
+            $data = $this->My_User->get_user($user);
+            $pwd1 = $this->input->post('MDPEleve');
+            $test = $this->input->post('MDPEleveN1'); //faire du ajax
+            if (password_verify($pwd1, $data[0]->MDPEleve)){
+                if (isset($test)) {
+                    $this->form_validation->set_rules('MDPEleveN1', 'Mot de passe', 'required|min_length[7]');
+                    $this->form_validation->set_rules('MDPEleveN2', 'Confirm Password', 'required|matches[MDPEleveN1]');
+                    if ($this->form_validation->run() === FALSE){
+                        redirect('Edits');
+                    }
+                    else {
+                        $encrypted = crypt($_POST['MDPEleveN1'], 'md5');
+                        $this->My_User->update_user1($user, $encrypted);
+                        var_dump($test);
+                    }
+                }
+                else{
+                    $this->My_User->update_user($user);
+                    var_dump($test);
+                }
+            }
+            else {
+                redirect('Edits');
+            }
         }
 
 		
@@ -62,6 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 else {
                     $mail = $this->input->post('Email');
                     $data = $this->My_User->getByMail($mail);
+                    var_dump($data);
                     if (password_verify($_POST['MDPEleve'], $data[0]->MDPEleve)){
                     $idUser = $data[0]->PseudoEleve;
                     $cstrong = true;
@@ -73,10 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);
                     $this->My_Cookie->setCookie($idUser, $token);
                     redirect('Welcome');
-                }
-                    
-
-                    //remettre les cookies qui sont dans ranking
+                    }
                 }
             }
             else {

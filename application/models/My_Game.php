@@ -34,24 +34,38 @@ class My_Game extends CI_Model
 		return $query->result();
 	}
 
-	public function create_game($user){
-		$data = array(
-			'ModePartie' => $this->input->post('ModePartie'),
-			'PseudoEleve' => $user,
-			'NoteEstime' => $this->input->post('NoteEstimee'),
-			'NoteFinale' => $this->input->post('NoteFinale'),
-			'Date' => $this->input->post('Date'),
+	function getSubjectByYear($id){
+		$this->db->select('*');
+		$this->db->from('matiere');
+		$this->db->where('matiere.IdAnnee', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
+	function getFinalBySubject($id){
+		$this->db->select('*');
+		$this->db->from('devoir');
+		$this->db->where('devoir.IdMatiere', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
+	public function create_game1($user){
+		$data = array(
+			'PseudoEleve' => $user,
+			'IdDevoir' => $this->input->post('IdDevoir'),
+			'Date' => $this->input->post('Date')
 		);
 		$data = html_escape($data);
 		$this->db->insert('partie', $data);
+		$this->db->select('IdPartie');
+		$this->db->from('partie');
+		$id = $this->db->get();
+		return $id->result();
 	}
 
-	public function get_game($user)
-	{
-		$query = $this->db->query('SELECT IdPartie FROM partie WHERE `PseudoEleve` = ?', $user); //récupérer la derniere partie crée (faire en sorte qu'il soit sur la partie crée)
-		return $query->result();
-	}
+	
 
 
 	public function read_game(){

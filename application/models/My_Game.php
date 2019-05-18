@@ -55,7 +55,7 @@ class My_Game extends CI_Model
 		$data = array(
 			'PseudoEleve' => $user,
 			'IdDevoir' => $this->input->post('IdDevoir'),
-			'Date' => $this->input->post('Date')
+			'Date' => $this->input->post('Date'),
 		);
 		$data = html_escape($data);
 		$this->db->insert('partie', $data);
@@ -65,7 +65,19 @@ class My_Game extends CI_Model
 		return $id->result();
 	}
 
-	
+	public function user_games(){
+		$id = $this->My_Cookie->IsLoggedIn();
+		if (!($id)){
+			redirect('Users');
+		}
+		else{
+			$this->db->select('*');
+			$this->db->from('partie');
+			$this->db->where('partie.PseudoEleve', $id);
+			$query = $this->db->get();
+			return $query ->result();
+		}
+	}
 
 
 	public function read_game(){

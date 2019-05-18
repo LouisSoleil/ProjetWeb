@@ -3,26 +3,26 @@
 
 <body>
 <div class="container">
-	<h2>Tes Parties</h2>         
+	<h2>Tes Paris</h2>         
 	<table class="table">
     	<thead>
 			<tr>
         	<th>Examin</th>
         	<th>Créateur</th>
-        	<th>Note Estimée</th>
           <th>Date</th>
-          <th>modifier</th>
+          <th>Modifier</th>
       		</tr>
     	</thead>
     	<tbody>
         <?php 
-          if ($students){
-            foreach($students as $student){
+          if ($games){
+            foreach($games as $game){
           ?>
       		<tr>
-        	<td>1</td>
-        	<td><?php echo $student->PseudoEleve; ?></td>
-        	<td><?php echo $student->IdAnnee; ?></td>
+        	<td><?php echo $game->IdDevoir; ?></td>
+        	<td><?php echo $game->PseudoEleve; ?></td>
+          <td><?php echo $game->Date; ?></td>
+          <td><a href="#">modifier</a></td>
       		</tr>
     	</tbody>
       <?php 

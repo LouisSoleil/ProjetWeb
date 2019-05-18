@@ -10,15 +10,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function index() {
-	        if (isset($_COOKIE['PseudoEleve']) && isset($_COOKIE['MDPEleve'])) {
-	            $this->load->view('templates/header2');
-	            $this->load->view('HomePage');
+            $user = $this->My_Cookie->isLoggedIn();
+	        if (!($user)) {
+                echo "vous n'êtes plus connecté";
+                $data['title'] = 'connexion';
+                $this->load->view('templates/header', $data);
+                $this->load->view('Connexion');
 	        } 
 	        else {
-	            echo "vous n'êtes plus connecté";
-	            $data['title'] = 'connexion';
-	            $this->load->view('templates/header', $data);
-	            $this->load->view('Connexion');
+                $this->load->view('templates/header');
+                $this->load->view('HomePage');
 	        }
     	}
 

@@ -5,11 +5,11 @@ class Rankings extends CI_Controller {
 
 	function __construct(){
 		parent:: __construct();
-		$this->load->model('My_User', 's');
+		$this->load->model('My_User');
 	}
 
 	public function index(){
-		$data['students'] = $this->s->getAllData();
+		$data['students'] = $this->My_User->getAllData();
 		$this->load->view('templates/header');
 		$this->load->view('Ranking', $data);
 	}

@@ -59,10 +59,6 @@ class My_Game extends CI_Model
 		);
 		$data = html_escape($data);
 		$this->db->insert('partie', $data);
-		$this->db->select('IdPartie');
-		$this->db->from('partie');
-		$id = $this->db->get();
-		return $id->result();
 	}
 
 	public function user_games(){
@@ -79,9 +75,22 @@ class My_Game extends CI_Model
 		}
 	}
 
+	public function get_game($id){
+		$this->db->select('*');
+		$this->db->from('partie');
+		$this->db->where('partie.IdPartie', $id);
+		$query = $this->db->get();
+		return $query->result();
 
-	public function read_game(){
-		
+	}
+
+
+	public function get_guest($id){
+		$this->db->select('*');
+		$this->db->from('invite');
+		$this->db->join('partie', 'partie.IdPartie = invite.IdPartie');
+		$query = $this->db->get();
+		return $query->result();	
 	}
 
 

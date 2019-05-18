@@ -1,19 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MyGames extends CI_Controller {
+class addUgames extends CI_Controller {
 
-	function __construct(){
+	public function __construct(){
 		parent:: __construct();
 		$this->load->model('My_Game');
+		$this->load->model('My_Cookie');
 	}
-
 	public function index(){
 		$data['games'] = $this->My_Game->user_games();
 		$this->load->view('templates/header');
-		$this->load->view('Mygame', $data);
+		$this->load->view('addUgame', $data);
 	}
-
-
 }
 ?>

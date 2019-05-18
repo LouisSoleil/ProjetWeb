@@ -51,3 +51,15 @@ th{
 	text-align: center;
 }
 
+#btn {
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.form-inline{
+	padding-top: 2%;
+}
+
+#add{
+	padding-right: 2%;
+}

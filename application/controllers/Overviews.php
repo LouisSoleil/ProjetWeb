@@ -12,6 +12,13 @@ class Overviews extends CI_Controller {
 		$data['alls'] = $this->My_Game->get_guestByGame($idP);
 		$data['games'] = $this->My_Game->get_game($idP);
 		$this->load->view('templates/header');
-		$this->load->view('Overview', $data);
+		$this->load->view('OverviewA', $data);
+	}
+
+	public function change($idP){
+		$data['alls'] = $this->My_Game->get_guestByGame($idP);
+		$data['games'] = $this->My_Game->get_game($idP);
+		$this->load->view('templates/header');
+		$this->load->view('OverviewM', $data);
 	}
 }

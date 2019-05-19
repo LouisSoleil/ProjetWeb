@@ -10,8 +10,6 @@
             <th>Examen</th>
             <th>Créateur</th>
             <th>Date</th>
-            <th>Aperçu</th>
-            <th>Modifier</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +21,9 @@
             <td><?php echo $game->IdDevoir; ?></td>
             <td><?php echo $game->PseudoEleve; ?></td>
             <td><?php echo $game->Date; ?></td>
-            <td><a href="<?php echo base_url("Overviews/history/" . $game->IdPartie);?>"> aperçu </a></td>
-            <td><a href="<?php echo base_url("Historics/delete/" . $game->IdPartie);?>"> supprimer </a></td>
+            <td><a href="<?php echo base_url("Overviews/history/" . $game->IdPartie);?>"> Ajouter </a></td>
+            <td><a href="<?php echo base_url("Overviews/change/" . $game->IdPartie);?>"> Modifier </a></td>
+            <td><a href="<?php echo base_url("Historics/delete/" . $game->IdPartie);?>"> Supprimer </a></td>
             </tr>
         </tbody>
         <?php 

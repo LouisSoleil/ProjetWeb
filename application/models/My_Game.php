@@ -89,11 +89,20 @@ class My_Game extends CI_Model
 
 
 	public function add_player($id){
+		if (($_POST['NoteFinale']) != 0){
+			$diff = max($_POST['NoteEstimee'], $_POST['NoteFinale']) - min($_POST['NoteEstimee'], $_POST['NoteFinale']);
+		}
+		else {
+			$diff = NULL; 
+			$_POST['NoteFinale'] = NULL ;
+		}	
 		$data = array(
 				'IdPartie' => $id,
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
 				'NoteEstimee' => $this->input->post('NoteEstimee'),
 				'NoteFinale' => $this->input->post('NoteFinale'),
+				'Difference' => $diff
+
 			);
 			$data = html_escape($data);
 			$this->db->insert('inviter', $data);
@@ -109,6 +118,27 @@ class My_Game extends CI_Model
 		$this->db->where('IdPartie', $id);
 		$this->db->where('PseudoEleve', $_POST['SPseudoEleve']);
 		$this->db->delete('inviter');
+	}
+
+	public function get_moy(){
+
+	}
+
+	public function updat($user, $idP){
+		if ($_POST['NoteEstimee'] == 0){
+			$data = array(
+					'NoteFinale' => $this->input->post('NoteFinale'));
+		}
+		else{
+			$data = array(
+					'NoteEstimee' => $this->input->post('NoteEstimee'),
+					'NoteFinale' => $this->input->post('NoteFinale'),
+				);
+		}
+		$data = html_escape($data);
+		$multiplewhere = ['PseudoEleve'=>$user, 'IdPartie'=> $idP];
+		$this->db->where ($multiplewhere);
+		$this->db->update('inviter', $data,);
 	}
 }
 ?>

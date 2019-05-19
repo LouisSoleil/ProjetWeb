@@ -62,5 +62,12 @@ class Games extends CI_Controller {
 			redirect('/Overviews/history/' .$id);
 	    }    		
     }
+
+    public function upgrade(){
+		$this->form_validation->set_rules('PseudoEleve', 'Choississez un pseudo de la liste');
+		$users = $this->My_Game->get_guestByGame($_POST['Partie']);
+		$this->My_Game->updat($_POST['PseudoEleve'], $_POST['Partie']);
+		redirect('Overviews/change/' .$_POST['Partie']);
+    }
 }
 ?>

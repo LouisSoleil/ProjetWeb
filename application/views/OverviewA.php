@@ -52,7 +52,7 @@
         </div>
         <div class="form-group" id="add">
           <label for="add">Note Finale :</label>
-          <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale" required max="20" min="0">
+          <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale">
         </div>
         <div class="row" id="btn">
           <button name="Partie" id="Partie" type="submit" class="btn btn-success" value="<?php echo ($games[0]->IdPartie);?>">Enregister</button>

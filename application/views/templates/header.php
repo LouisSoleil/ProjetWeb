@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <li><a href="#">A propos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/ProjetWeb/Connexions"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+          <li><a href="<?php echo base_url('Connexions')?>"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
         </ul>
       </div>
     </div>

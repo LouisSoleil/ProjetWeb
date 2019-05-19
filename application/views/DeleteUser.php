@@ -4,10 +4,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="cl-sm-12">
-				<h2>Connexion</h2>
+				<h2>Supprimer le compte</h2>
 			</div>
 		</div>
-		<form method ="post" action ="<?php echo site_url('Users/login')?>">
+		<form method ="post" action ="<?php echo site_url('Users/delete')?>">
 			<div class="form-group">
 				<label for="Connexion">Ton Mail :</label>
 				<input type="email" class="form-control" name="Email" id="Email" placeholder="Entre ton mail" required>

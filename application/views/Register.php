@@ -12,7 +12,7 @@
 				<form method ="post" action ="<?php echo site_url('Users/create')?>">
 				<div class="form-group">
 					<label for="Register">Email :</label>
-					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail universitaire">
+					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail">
 				</div>
 				<div class="form-group">
 					<label for="Register">Mot de passe :</label>

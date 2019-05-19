@@ -21,8 +21,6 @@
       <li>Puis, tu choisis la matière ainsi que le devoir concerné et la date du devoir.</li>
       <li>Tu n'as plus qu'à valider et à ajouter tous les joueurs que tu souhaites.</li>
       <li>/!\ Tous les joueurs doivent avoir un compte /!\.</li>
-    </div>
-  </div>
     <div class="row">
       <a href ="<?php echo base_url('Games')?>"><button type="button" class="btn btn-success btn-lg btn-block">C'est Partie !!</button></a>
     </div>

@@ -110,5 +110,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->My_Cookie->deleteCookie();
                 redirect();
             }
+
+            public function delete(){
+                
+            }
     }
 ?>

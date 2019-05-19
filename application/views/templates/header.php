@@ -26,8 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="Welcome">Acceuil</a></li>
-          <li><a href="Rankings">Classement</a></li>
+          <li><a href="<?php echo base_url('Welcome')?>">Acceuil</a></li>
+          <li><a href="<?php echo base_url('Rankings')?>">Classement</a></li>
           <li><a href="#">A propos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -50,14 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="Welcome">Acceuil</a></li>
-          <li><a href="Rankings">Classement</a></li>
-          <li><a href="Edits">Modifier mon compte</a></li>
-          <li><a href="Historics">Mes Paris</a></li>
+          <li><a href="<?php echo base_url('Welcome')?>">Acceuil</a></li>
+          <li><a href="<?php echo base_url('Rankings')?>">Classement</a></li>
+          <li><a href="<?php echo base_url('Edits')?>">Modifier mon compte</a></li>
+          <li><a href="<?php echo base_url('Historics')?>">Mes Paris</a></li>
           <li><a href="#">A propos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?php echo site_url('Users/logout');?>" ><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
+          <li><a href="<?php echo base_url('Users/logout');?>" ><span class="glyphicon glyphicon-log-in"></span> Deconnexion</a></li>
         </ul>
       </div>
     </div>

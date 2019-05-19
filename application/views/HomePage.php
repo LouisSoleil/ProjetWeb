@@ -22,7 +22,7 @@
     </div>
   </div>
     <div class="row">
-      <a href ="Games"><button type="button" class="btn btn-success btn-lg btn-block">C'est Partie !!</button></a>
+      <a href ="<?php echo base_url('Games')?>"><button type="button" class="btn btn-success btn-lg btn-block">C'est Partie !!</button></a>
     </div>
 </div>
 </body>

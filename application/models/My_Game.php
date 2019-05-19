@@ -84,20 +84,13 @@ class My_Game extends CI_Model
 		$this->db->where('inviter.IdPartie =', $id);
 		$query = $this->db->get();
 		return $query->result();	
-	}
-
-	public function get_FinalByGame($idP)
-	{
-		$this->db->select('*');
-    	$this->db->from('partie');
-    	$this->db->where('partie.IdPartie=', $idP);
-		$query = $this->db->get();
-		return $query->result();
+	
 	}
 
 
-	public function add_player(){
+	public function add_player($id){
 		$data = array(
+				'IdPartie' => $id,
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
 				'NoteEstimee' => $this->input->post('NoteEstimee'),
 				'NoteFinale' => $this->input->post('NoteFinale'),
@@ -107,8 +100,15 @@ class My_Game extends CI_Model
 		} 
 
 
-	public function delete_game(){
-		
+	public function delete_game($id){
+		$this->db->where('IdPartie', $id);
+		$this->db->delete('partie');
+	}
+
+	public function delete_player($id){
+		$this->db->where('IdPartie', $id);
+		$this->db->where('PseudoEleve', $_POST['SPseudoEleve']);
+		$this->db->delete('inviter');
 	}
 }
 ?>

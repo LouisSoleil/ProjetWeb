@@ -20,5 +20,17 @@ class Historics extends CI_Controller {
 			$this->load->view('Historic', $data);
 		}
 	}
+
+	public function delete($id){
+		$test =$this->My_Game->get_guestByGame($id);
+		if (!(test)){
+			echo "Impossible de supprimer la table";
+			redirect('Historics');
+		}
+		else{
+			$this->My_Game->delete_game($id);
+			redirect(base_url('Historics'));
+		}
+	}
 }
 ?>

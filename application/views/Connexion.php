@@ -24,7 +24,7 @@
 		</div>
 		</form>
 		<div class="row">
-			<p><a href="/ProjetWeb/Registers">S'inscrire</a></p>
+			<p><a href="<?php echo base_url('Registers')?>">S'inscrire</a></p>
 		</div>
 	</div>
 </body>

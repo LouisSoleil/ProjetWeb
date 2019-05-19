@@ -31,7 +31,6 @@ class Games extends CI_Controller {
 		$user=$this->My_Cookie->isLoggedIn();
 		if (!($user)) {
 			redirect('Games');
-			var_dump($test1); 
 			}
 		else{
 	    	$this->My_Game->create_game1($user);
@@ -40,13 +39,27 @@ class Games extends CI_Controller {
 	}
 
 	public function invite(){
-		$query = $this->My_User->get_user($_POST['PseudoEleve']);
-		if (!($querry)) {
-            redirect('Registers');
+		$this->form_validation->set_rules('PseudoEleve', 'Pseudo du nouveau joueur', 'required|is_unique[eleve.PseudoEleve]');
+		if ($this->form_validation->run() === FALSE) {
+			$id = $_POST['Partie'];
+			$this->My_Game->add_player($id);
+	        redirect('/Overviews/history/' .$id);
         }
         else{
-	        $this->My_Game->add_player();
-	        redirect('Welcome');
+        	redirect('Registers');
+	    }    		
+    }
+
+    public function delete(){
+		$this->form_validation->set_rules('SPseudoEleve', 'Pseudo du joueur à supprimer', 'required|is_unique[eleve.PseudoEleve]');
+		if ($this->form_validation->run() === FALSE) {
+			$id = $_POST['SPartie'];
+			$this->My_Game->delete_player($id);
+	        redirect('/Overviews/history/' .$id);
+        }
+        else{
+        	$id = $_POST['SPartie'];
+			redirect('/Overviews/history/' .$id);
 	    }    		
     }
 }

@@ -24,7 +24,7 @@
             <td><?php echo $game->PseudoEleve; ?></td>
             <td><?php echo $game->Date; ?></td>
             <td><a href="<?php echo base_url("Overviews/history/" . $game->IdPartie);?>"> aperçu </a></td>
-            <td><a href="addUgames"> modifier </a></td>
+            <td><a href="<?php echo base_url("Historics/delete/" . $game->IdPartie);?>"> supprimer </a></td>
             </tr>
         </tbody>
         <?php 
@@ -33,7 +33,7 @@
         ?>
      </table>
      <div class="form-group">
-      <a type="submit" class="btn" href="<?php echo site_url('/')?>">Retour</a>
+      <a type="submit" class="btn" href="<?php echo site_url('Welcome')?>">Retour</a>
     </div>
    </div>
 </div>

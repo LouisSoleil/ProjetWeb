@@ -24,6 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $query-> result();
 		}
 
+		function getAllDataMin(){
+			$this->db->select('*');
+			$this->db->from('eleve');
+			$this->db->order_by('MoyenneEleve', 'desc');
+			$query = $this->db->get();
+			return $query-> result();
+		}
+
 		function get_user($id){
 			$query = $this->db->query('SELECT * FROM eleve WHERE PseudoEleve = ?', $id);
 			return $query-> result();
@@ -102,6 +110,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data = html_escape($data);
 			$this->db->where ('PseudoEleve', $user);
 			$this->db->update('eleve', $data,);
+		}
+
+		public function add_mark($user, $diff){;
+			$this->db->where('PseudoEleve', $user);
+			$this->db->set('MoyenneEleve', $diff);
+			$this->db->update('eleve');
 		}
 
 		public function delete_user(){

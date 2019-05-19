@@ -88,14 +88,7 @@ class My_Game extends CI_Model
 	}
 
 
-	public function add_player($id){
-		if (($_POST['NoteFinale']) != 0){
-			$diff = max($_POST['NoteEstimee'], $_POST['NoteFinale']) - min($_POST['NoteEstimee'], $_POST['NoteFinale']);
-		}
-		else {
-			$diff = NULL; 
-			$_POST['NoteFinale'] = NULL ;
-		}	
+	public function add_player($id, $diff){	
 		$data = array(
 				'IdPartie' => $id,
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
@@ -111,20 +104,33 @@ class My_Game extends CI_Model
 
 	public function delete_game($id){
 		$this->db->where('IdPartie', $id);
+		$this->db->delete('inviter');
 		$this->db->delete('partie');
 	}
 
 	public function delete_player($id){
-		$this->db->where('IdPartie', $id);
-		$this->db->where('PseudoEleve', $_POST['SPseudoEleve']);
+		$multiplewhere = ['IdPartie'=>$id, 'PseudoEleve'=> $_POST['SPseudoEleve']];
+		$this->db->where($multiplewhere);
 		$this->db->delete('inviter');
 	}
 
-	public function get_moy(){
-
+	public function get_couple(){
+		$this->db->select('IdPartie, PseudoEleve');
+		$this->db->from('inviter');
+		$query = $this->db->get();
+		return $query->result();
 	}
 
-	public function updat($user, $idP){
+	public function get_avg($user){
+		$multiplewhere = ['IdPartie'=>$user->IdPartie, 'PseudoEleve'=> $user->PseudoEleve];
+		$this->db->select_avg('Difference');
+		$this->db->from('inviter');
+		$this->db->where($multiplewhere);
+		$query = $this->db->get();
+		return $query -> result();
+	}
+
+	public function updat($user, $idP, $diff){
 		if ($_POST['NoteEstimee'] == 0){
 			$data = array(
 					'NoteFinale' => $this->input->post('NoteFinale'));
@@ -133,6 +139,7 @@ class My_Game extends CI_Model
 			$data = array(
 					'NoteEstimee' => $this->input->post('NoteEstimee'),
 					'NoteFinale' => $this->input->post('NoteFinale'),
+					'Difference' => $diff
 				);
 		}
 		$data = html_escape($data);

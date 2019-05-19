@@ -13,11 +13,13 @@
     	</thead>
     	<tbody>
         <?php 
+          $cmpt = 0;
           if ($students){
             foreach($students as $student){
+              $cmpt ++;
           ?>
       		<tr>
-        	<td>1</td>
+        	<td><?php echo $cmpt; ?></td>
         	<td><?php echo $student->PseudoEleve; ?></td>
         	<td><?php echo $student->IdAnnee; ?></td>
       		</tr>

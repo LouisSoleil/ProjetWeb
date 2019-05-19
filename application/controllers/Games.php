@@ -33,7 +33,14 @@ class Games extends CI_Controller {
 			redirect('Games');
 			}
 		else{
-	    	$this->My_Game->create_game1($user);
+			if (($_POST['NoteFinale']) != 0){
+			$diff = max($_POST['NoteEstimee'], $_POST['NoteFinale']) - min($_POST['NoteEstimee'], $_POST['NoteFinale']);
+			}
+			else {
+			$diff = NULL; 
+			$_POST['NoteFinale'] = NULL ;
+			}
+	    	$this->My_Game->create_game1($user, $diff);
 	        redirect('Historics', $data);
 		}
 	}
@@ -43,6 +50,7 @@ class Games extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$id = $_POST['Partie'];
 			$this->My_Game->add_player($id);
+			redirect('Games/average')
 	        redirect('/Overviews/history/' .$id);
         }
         else{
@@ -64,9 +72,16 @@ class Games extends CI_Controller {
     }
 
     public function upgrade(){
+    	if (($_POST['NoteFinale']) != 0){
+			$diff = max($_POST['NoteEstimee'], $_POST['NoteFinale']) - min($_POST['NoteEstimee'], $_POST['NoteFinale']);
+		}
+		else {
+			$diff = NULL; 
+			$_POST['NoteFinale'] = NULL ;
+		}
 		$this->form_validation->set_rules('PseudoEleve', 'Choississez un pseudo de la liste');
 		$users = $this->My_Game->get_guestByGame($_POST['Partie']);
-		$this->My_Game->updat($_POST['PseudoEleve'], $_POST['Partie']);
+		$this->My_Game->updat($_POST['PseudoEleve'], $_POST['Partie'], $diff);
 		redirect('Overviews/change/' .$_POST['Partie']);
     }
 }

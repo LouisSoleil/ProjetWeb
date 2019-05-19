@@ -82,7 +82,7 @@
                 <a type="submit" class="btn" href="<?php echo base_url('Historics/')?>">Retour</a>
               </div>
             </div>
-       </div>
+          </div>
         </div>
       </div>
     </div>

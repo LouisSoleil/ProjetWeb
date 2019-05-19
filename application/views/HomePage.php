@@ -17,8 +17,10 @@
       <p id="pHP">Avec tes potes, vous allez parier sur la note que vous allez avoir à ce devoir noté, et bien sûr tu vas avoir la note réelle. Celui qui à le plus gros écart entre la note annoncée et la note finale doit payer son coup dans le bar de votre choix.</p>
       <h3>Voici comment tu vas jouer :</h3>
       <li>Dans en premier temps tu dois t'inscrire.</li>
-      <li>Ensuite, choisis ta section ainsi que ta classe ci-contre.</li>
-      <li>Puis, tu rentre le nom des joueurs avec qui tu veux jouer.</li>
+      <li>Ensuite, tu vas cliquer sur le bouton ci-dessous.</li>
+      <li>Puis, tu choisis la matière ainsi que le devoir concerné et la date du devoir.</li>
+      <li>Tu n'as plus qu'à valider et à ajouter tous les joueurs que tu souhaites.</li>
+      <li>/!\ Tous les joueurs doivent avoir un compte /!\.</li>
     </div>
   </div>
     <div class="row">

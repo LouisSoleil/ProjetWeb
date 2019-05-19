@@ -44,15 +44,15 @@
         <form class ='form-inline' method ="post" action ="<?php echo site_url('Games/invite')?>">
         <div class="form-group" id="add">
           <label for="add">Pseudo :</label>
-          <input type="charset" class="form-control" name="PseudoEleve" id="PseudoEleve" placeholder="Pseudo du Joueur">
+          <input type="charset" class="form-control" name="PseudoEleve" id="PseudoEleve" placeholder="Pseudo du Joueur" required>
         </div>
         <div class="form-group" id="add">
           <label for="add">Note Estimée :</label>
-          <input type="float" class="form-control" name="NoteEstimee" id="NoteEstimee" placeholder="Note Estimée">
+          <input type="float" class="form-control" name="NoteEstimee" id="NoteEstimee" placeholder="Note Estimée" required max="20" min="0">
         </div>
         <div class="form-group" id="add">
           <label for="add">Note Finale :</label>
-          <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale">
+          <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale" required max="20" min="0">
         </div>
         <div class="row" id="btn">
           <button name="Partie" id="Partie" type="submit" class="btn btn-success" value="<?php echo ($games[0]->IdPartie);?>">Enregister</button>
@@ -60,7 +60,7 @@
         </form>
         <div class ="row">
       <div class="col-sm-12">
-        <h2>Supprimer un Joueurs</h2>
+        <h2>Supprimer un Joueur</h2>
       </div>
     </div>
       <div class="row">

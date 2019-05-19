@@ -88,13 +88,12 @@ class My_Game extends CI_Model
 	}
 
 
-	public function add_player($id, $diff){	
+	public function add_player($id){	
 		$data = array(
 				'IdPartie' => $id,
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
 				'NoteEstimee' => $this->input->post('NoteEstimee'),
 				'NoteFinale' => $this->input->post('NoteFinale'),
-				'Difference' => $diff
 
 			);
 			$data = html_escape($data);

@@ -23,7 +23,7 @@ class Historics extends CI_Controller {
 
 	public function delete($id){
 		$test =$this->My_Game->get_guestByGame($id);
-		if (!(test)){
+		if (!($test)){
 			echo "Impossible de supprimer la table";
 			redirect('Historics');
 		}

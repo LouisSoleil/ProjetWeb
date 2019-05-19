@@ -50,7 +50,6 @@ class Games extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			$id = $_POST['Partie'];
 			$this->My_Game->add_player($id);
-			redirect('Games/average')
 	        redirect('/Overviews/history/' .$id);
         }
         else{

@@ -22,16 +22,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
+        <img  src="<?php echo base_url('/JPEG/logo.gif');?>" class="navbar-brand"></img>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="<?php echo base_url('Welcome')?>">Acceuil</a></li>
-          <li><a href="<?php echo base_url('Rankings')?>">Classement</a></li>
+          <li><a href="<?php echo base_url('Welcome');?>">Acceuil</a></li>
+          <li><a href="<?php echo base_url('Rankings');?>">Classement</a></li>
           <li><a href="#">A propos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?php echo base_url('Connexions')?>"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+          <li><a href="<?php echo base_url('Connexions');?>"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
         </ul>
       </div>
     </div>
@@ -50,10 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="<?php echo base_url('Welcome')?>">Acceuil</a></li>
-          <li><a href="<?php echo base_url('Rankings')?>">Classement</a></li>
-          <li><a href="<?php echo base_url('Edits')?>">Modifier mon compte</a></li>
-          <li><a href="<?php echo base_url('Historics')?>">Mes Paris</a></li>
+          <li><a href="<?php echo base_url('Welcome');?>">Acceuil</a></li>
+          <li><a href="<?php echo base_url('Rankings');?>">Classement</a></li>
+          <li><a href="<?php echo base_url('Edits');?>">Modifier mon compte</a></li>
+          <li><a href="<?php echo base_url('Historics');?>">Mes Paris</a></li>
           <li><a href="#">A propos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

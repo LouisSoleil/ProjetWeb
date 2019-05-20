@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url('assets/Register.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/Register.css');?>">
 </head>
 <body>
 	<div class ="container">
@@ -9,7 +9,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12"> 
-				<form method ="post" action ="<?php echo site_url('Users/create')?>">
+				<form method ="post" action ="<?php echo site_url('Users/create');?>">
 				<div class="form-group">
 					<label for="Register">Email :</label>
 					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" placeholder="Entre ton mail">

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url('assets/Game.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/Game.css');?>">
 </head>
 
 <body>

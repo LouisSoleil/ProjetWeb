@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url('assets/Register.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/Register.css');?>">
 </head>
 <body>
 	<div class ="container">
@@ -9,7 +9,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12"> 
-				<form class ='form-inline' method ="post" action ="<?php echo site_url('MyGames/add')?>">
+				<form class ='form-inline' method ="post" action ="<?php echo site_url('MyGames/add');?>">
 				<div class="form-group" id="add">
 					<label for="add">Pseudo :</label>
 					<input type="charset" class="form-control" name="PseudoEleve" id="PseudoEleve" placeholder="Pseudo du Joueur">

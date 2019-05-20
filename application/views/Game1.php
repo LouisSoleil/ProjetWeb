@@ -23,9 +23,9 @@
             <div class="form-group">
                 <input type="charset" class="form-control" name="IdMatiere" id="IdMatiere" value="<?php echo $subjects ?>"></option>
             </div>
-            <select class="form-control" name="IdDevoir" id="IdDevoir" value="<?php echo $final->IdDevoir; ?>">
+            <select class="form-control" name="IdDevoir" id="IdDevoir" value="<?php echo $final->iddevoir; ?>">
               <?php foreach($finals as $final) { ?>
-              <option name="IdDevoir" id="IdDevoir" value="<?php echo $final->IdDevoir; ?>"><?php echo $final->IdDevoir; ?></option>
+              <option name="IdDevoir" id="IdDevoir" value="<?php echo $final->iddevoir; ?>"><?php echo $final->iddevoir; ?></option>
               <?php } ?>
             </select>
             <div class="form-group">

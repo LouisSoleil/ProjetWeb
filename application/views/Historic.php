@@ -18,12 +18,12 @@
               foreach($games as $game){
             ?>
             <tr>
-            <td><?php echo $game->IdDevoir; ?></td>
-            <td><?php echo $game->PseudoEleve; ?></td>
-            <td><?php echo $game->Date; ?></td>
-            <td><a href="<?php echo base_url("Overviews/history/" . $game->IdPartie);?>"> Ajouter </a></td>
-            <td><a href="<?php echo base_url("Overviews/change/" . $game->IdPartie);?>"> Modifier </a></td>
-            <td><a href="<?php echo base_url("Historics/delete/" . $game->IdPartie);?>"> Supprimer </a></td>
+            <td><?php echo $game->iddevoir; ?></td>
+            <td><?php echo $game->pseudoeleve; ?></td>
+            <td><?php echo $game->date; ?></td>
+            <td><a href="<?php echo base_url("Overviews/history/" . $game->idpartie);?>"> Ajouter </a></td>
+            <td><a href="<?php echo base_url("Overviews/change/" . $game->idpartie);?>"> Modifier </a></td>
+            <td><a href="<?php echo base_url("Historics/delete/" . $game->idpartie);?>"> Supprimer </a></td>
             </tr>
         </tbody>
         <?php 

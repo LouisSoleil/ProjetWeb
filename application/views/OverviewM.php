@@ -4,7 +4,7 @@
 <body>
 <div class="container">
   <div class="row">
-	 <h2><?php echo $games[0]->IdDevoir ?></h2> 
+	 <h2><?php echo $games[0]->iddevoir ?></h2> 
   </div>  
   <div class="row">      
 	<table class="table table-bordered">
@@ -22,10 +22,10 @@
             foreach($alls as $all){
           ?>
       		<tr>
-        	<td><?php echo $all->PseudoEleve; ?></td>
-        	<td><?php echo $all->NoteEstimee; ?></td>
-          <td><?php echo $all->NoteFinale; ?></td>
-          <td><?php echo $all->Difference; ?></td>
+        	<td><?php echo $all->pseudoeleve; ?></td>
+        	<td><?php echo $all->noteestimee; ?></td>
+          <td><?php echo $all->notefinale; ?></td>
+          <td><?php echo $all->difference; ?></td>
       		</tr>
     	</tbody>
       <?php 
@@ -55,7 +55,7 @@
           <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale">
         </div>
         <div class="row" id="btn">
-          <button name="Partie" id="Partie" type="submit" class="btn" value="<?php echo ($games[0]->IdPartie);?>">Modifier</button>
+          <button name="Partie" id="Partie" type="submit" class="btn" value="<?php echo ($games[0]->idpartie);?>">Modifier</button>
         </div>
         </form>
         <div class="row">

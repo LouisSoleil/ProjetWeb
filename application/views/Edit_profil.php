@@ -13,7 +13,7 @@
 				<?php if($Users) {?> 
 				<div class="form-group">
 					<label for="Register">Email :</label>
-					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" value ="<?php echo $Users[0]->EmailEleve; ?>" >
+					<input type="email" class="form-control" name="EmailEleve" id="EmailEleve" value ="<?php echo $Users[0]->emaileleve; ?>" >
 				</div> 
 				<div class="form-group">
 					<label for="Register">Ancien Mot de passe :</label>
@@ -29,15 +29,15 @@
 				</div>
 				<div class="form-group">
 					<label for="Register">Nom :</label>
-					<input type="charset" class="form-control" name="NomEleve" id="NomEleve" value ="<?php echo $Users[0]->NomEleve; ?>" placeholder="<?php echo $Users[0]->NomEleve; ?>">
+					<input type="charset" class="form-control" name="NomEleve" id="NomEleve" value ="<?php echo $Users[0]->nomeleve; ?>" placeholder="<?php echo $Users[0]->nomeleve; ?>">
 				</div>
 				<div class="form-group">
 					<label for="Register">Prénom :</label>
-					<input type="charset" class="form-control" name="PrenomEleve" id="PrenomEleve" value ="<?php echo $Users[0]->PrenomEleve; ?>" placeholder="<?php echo $Users[0]->PrenomEleve; ?>">
+					<input type="charset" class="form-control" name="PrenomEleve" id="PrenomEleve" value ="<?php echo $Users[0]->prenomeleve; ?>" placeholder="<?php echo $Users[0]->prenomeleve; ?>">
 				</div>
 				<div class="form-group">
 					<label for="Register">Classe :</label>
-					<input type="charset" class="form-control" name="Classe" id="Classe" value ="<?php echo $Users[0]->IdAnnee; ?>">
+					<input type="charset" class="form-control" name="Classe" id="Classe" value ="<?php echo $Users[0]->idannee; ?>">
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-success" value="save">Enregistrer</button>

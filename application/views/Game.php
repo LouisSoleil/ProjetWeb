@@ -17,12 +17,12 @@
           <form class ='form-inline 'method ="post" action ="<?php echo site_url('Games/get_game')?>">
             <?php if($years) {?>
               <div class="form-group" >
-                <input type="charset" class="form-control" name="IdAnnee" id="IdAnnee" value ="<?php echo $years[0]->IdAnnee; ?>" >
+                <input type="charset" class="form-control" name="IdAnnee" id="IdAnnee" value ="<?php echo $years[0]->idannee; ?>" >
               </div>
             <?php }?>
-            <select class="form-control" name ="IdMatiere" id ="IdMatiere" value="<?php echo $year->IdMatiere; ?>">
+            <select class="form-control" name ="IdMatiere" id ="IdMatiere" value="<?php echo $year->idmatiere; ?>">
               <?php foreach($years as $year) { ?>
-                <option name="IdMatiere" id="IdMatiere" value="<?php echo $year->IdMatiere; ?>"><?php echo $year->IdMatiere; ?></option>
+                <option name="IdMatiere" id="IdMatiere" value="<?php echo $year->idmatiere; ?>"><?php echo $year->idmatiere; ?></option>
               <?php }?>
             </select>
             <div class="form-group">

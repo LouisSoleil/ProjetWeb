@@ -20,8 +20,8 @@
           ?>
       		<tr>
         	<td><?php echo $cmpt; ?></td>
-        	<td><?php echo $student->PseudoEleve; ?></td>
-        	<td><?php echo $student->IdAnnee; ?></td>
+        	<td><?php echo $student->pseudoeleve; ?></td>
+        	<td><?php echo $student->idannee; ?></td>
       		</tr>
     	</tbody>
       <?php 

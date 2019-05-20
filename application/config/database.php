@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$db = parse_url(getenv("DATABASE_URL"));
+$db["path"] = ltrim($db["path"], "/");
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -73,11 +75,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'eu-cdbr-west-02.cleardb.net',
-	'username' => 'b09a1b833de939',
-	'password' => 'd9315346',
-	'database' => 'heroku_102b59ec5c07845',
-	'dbdriver' => 'mysqli',
+	'hostname' => $db["host"],
+	'username' => $db["user"],
+	'password' => $db["pass"],
+	'database' => 'd23a7klhiio6r1',
+	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

@@ -12,8 +12,6 @@
 			<tr>
         	<th>Pseudo</th>
         	<th>Note Estimée</th>
-          <th>Note Final</th>
-          <th>Différence</th>
       		</tr>
     	</thead>
     	<tbody>
@@ -24,8 +22,6 @@
       		<tr>
         	<td><?php echo $all->PseudoEleve; ?></td>
         	<td><?php echo $all->NoteEstimee; ?></td>
-          <td><?php echo $all->NoteFinale; ?></td>
-          <td><?php echo $all->Difference; ?></td>
       		</tr>
     	</tbody>
       <?php 
@@ -50,12 +46,8 @@
           <label for="add">Note Estimée :</label>
           <input type="float" class="form-control" name="NoteEstimee" id="NoteEstimee" placeholder="Note Estimée" required max="20" min="0">
         </div>
-        <div class="form-group" id="add">
-          <label for="add">Note Finale :</label>
-          <input type="float" class="form-control" name="NoteFinale" id="NoteFinale" placeholder="Note Finale">
-        </div>
         <div class="row" id="btn">
-          <button name="Partie" id="Partie" type="submit" class="btn btn-success" value="<?php echo ($games[0]->IdPartie);?>">Enregister</button>
+          <button name="Partie" id="Partie" type="submit" class="btn" value="<?php echo ($games[0]->IdPartie);?>">Enregister</button>
         </div>
         </form>
         <div class ="row">
@@ -71,7 +63,7 @@
               <input type="charset" class="form-control" name="SPseudoEleve" id="SPseudoEleve" placeholder="Pseudo du Joueur">
             </div>
             <div class="row" id="btn">
-              <button name="SPartie" id="SPartie" type="submit" class="btn btn-danger" value="<?php echo ($games[0]->IdPartie);?>">Supprimer</button>
+              <button name="SPartie" id="SPartie" type="submit" class="btn" value="<?php echo ($games[0]->IdPartie);?>">Supprimer</button>
               </div>
             </div>
           </form>

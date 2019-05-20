@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function getAllDataMin(){
 			$this->db->select('*');
 			$this->db->from('eleve');
-			$this->db->order_by('MoyenneEleve', 'desc');
+			$this->db->order_by('MoyenneEleve', 'asc');
 			$query = $this->db->get();
 			return $query-> result();
 		}
@@ -86,7 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return $query->result();
         }
 
-
 		public function update_user($user){
 			$data = array(
 				'NomEleve' => $this->input->post('NomEleve'),
@@ -117,11 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->set('MoyenneEleve', $diff);
 			$this->db->update('eleve');
 		}
-
-		public function delete_user(){
-			
-		}
-
 }
 
 ?>

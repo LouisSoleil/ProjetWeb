@@ -5,11 +5,7 @@ class My_Game extends CI_Model
 	public function __contruct(){
 		$this->load->database();
 	}
-
-	protected $table = 'annee';
-
-
-
+	
 	public function get_year()
 	{
 		$this->db->select('*');
@@ -84,26 +80,21 @@ class My_Game extends CI_Model
 		$this->db->where('inviter.IdPartie =', $id);
 		$query = $this->db->get();
 		return $query->result();	
-	
 	}
-
 
 	public function add_player($id){	
 		$data = array(
 				'IdPartie' => $id,
 				'PseudoEleve' => $this->input->post('PseudoEleve'),
 				'NoteEstimee' => $this->input->post('NoteEstimee'),
-				'NoteFinale' => $this->input->post('NoteFinale'),
 
 			);
-			$data = html_escape($data);
-			$this->db->insert('inviter', $data);
-		} 
-
+		$data = html_escape($data);
+		$this->db->insert('inviter', $data);
+	} 
 
 	public function delete_game($id){
 		$this->db->where('IdPartie', $id);
-		$this->db->delete('inviter');
 		$this->db->delete('partie');
 	}
 
@@ -145,6 +136,14 @@ class My_Game extends CI_Model
 		$multiplewhere = ['PseudoEleve'=>$user, 'IdPartie'=> $idP];
 		$this->db->where ($multiplewhere);
 		$this->db->update('inviter', $data,);
+	}
+
+	public function get_date($idP){
+		$this->db->select('Date');
+		$this->db->from('partie');
+		$this->db->where('partie.IdPartie', $idP);
+		$query = $this->db->get();
+		return $query -> result();
 	}
 }
 ?>

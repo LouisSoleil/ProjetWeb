@@ -13,7 +13,7 @@ class Rankings extends CI_Controller {
 		$users = $this->My_Game->get_couple();
     	foreach ($users as $user) {
     		$avg = $this->My_Game->get_avg($user);
-			$this->My_User->add_mark($user->PseudoEleve, $avg[0]->Difference);
+			$this->My_User->add_mark($user->pseudoeleve, $avg[0]->difference);
     	}
 
     	$data['students'] = $this->My_User->getAllDataMin();

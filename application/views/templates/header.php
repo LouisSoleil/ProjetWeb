@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <img  src="<?php echo base_url('/JPEG/logo.gif');?>" class="navbar-brand"></img>
+        <img  src="<?php echo base_url('application/JPEG/logo.gif');?>" class="navbar-brand"></img>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <img  src="/ProjetWeb/application/JPEG/logo.gif" class="navbar-brand"></img>
+        <img  src="<?php echo base_url('application/JPEG/logo.gif');?>" class="navbar-brand"></img>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">

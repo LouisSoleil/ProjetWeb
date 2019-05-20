@@ -1,5 +1,5 @@
 .container{
-	background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
+	background-image: url("https://betdrink.herokuapp.com/application/JPEG/fond-beige.png");
 	border-radius: 15px;
 	height: auto;
 	margin-bottom: 5%;

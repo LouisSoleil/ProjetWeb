@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $url = parse_url(getenv("DATABASE_URL"));
-$url["path"] = ltrim($db["path"], "/");
+$url["path"] = ltrim($url["path"], "/");
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS

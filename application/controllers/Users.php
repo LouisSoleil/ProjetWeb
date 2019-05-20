@@ -24,12 +24,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	}
 
 		function create(){
-            $this->form_validation->set_rules('EmailEleve', 'Mail Etudiant', 'required|valid_email|is_unique[eleve.EmailEleve]');
+            $this->form_validation->set_rules('EmailEleve', 'Mail Etudiant', 'required|valid_email|is_unique[eleve.emaileleve]');
             $this->form_validation->set_rules('MDPEleve', 'Mot de passe', 'required|min_length[7]');
             $this->form_validation->set_rules('MDPEleve2', 'Confirm Password', 'required|matches[MDPEleve]');
             $this->form_validation->set_rules('PrenomEleve', 'Prénom', 'required');
             $this->form_validation->set_rules('NomEleve', 'Nom', 'required');
-            $this->form_validation->set_rules('PseudoEleve', 'Pseudo', 'required|is_unique[eleve.PseudoEleve]');
+            $this->form_validation->set_rules('PseudoEleve', 'Pseudo', 'required|is_unique[eleve.pseudoeleve]');
 
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header');

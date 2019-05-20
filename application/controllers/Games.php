@@ -46,7 +46,7 @@ class Games extends CI_Controller {
 	}
 
 	public function invite(){
-		$this->form_validation->set_rules('PseudoEleve', 'Pseudo du nouveau joueur', 'required|is_unique[eleve.PseudoEleve]');
+		$this->form_validation->set_rules('PseudoEleve', 'Pseudo du nouveau joueur', 'required|is_unique[eleve.pseudoeleve]');
 		if ($this->form_validation->run() === FALSE) {
 			$id = $_POST['Partie'];
 			$this->My_Game->add_player($id);
@@ -58,7 +58,7 @@ class Games extends CI_Controller {
     }
 
     public function delete(){
-		$this->form_validation->set_rules('SPseudoEleve', 'Pseudo du joueur à supprimer', 'required|is_unique[eleve.PseudoEleve]');
+		$this->form_validation->set_rules('SPseudoEleve', 'Pseudo du joueur à supprimer', 'required|is_unique[eleve.pseudoeleve]');
 		if ($this->form_validation->run() === FALSE) {
 			$id = $_POST['SPartie'];
 			$this->My_Game->delete_player($id);

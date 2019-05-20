@@ -86,7 +86,7 @@ class My_Game extends CI_Model
 		$data = array(
 				'idpartie' => $id,
 				'pseudoeleve' => $this->input->post('PseudoEleve'),
-				'noteestimee' => $this->input->post('NoteEstimee'),
+				'noteestimeei' => $this->input->post('NoteEstimee'),
 
 			);
 		$data = html_escape($data);
@@ -127,8 +127,8 @@ class My_Game extends CI_Model
 		}
 		else{
 			$data = array(
-					'noteestimee' => $this->input->post('NoteEstimee'),
-					'notefinale' => $this->input->post('NoteFinale'),
+					'noteestimeei' => $this->input->post('NoteEstimee'),
+					'notefinalei' => $this->input->post('NoteFinale'),
 					'difference' => $diff
 				);
 		}

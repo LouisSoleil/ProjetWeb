@@ -53,7 +53,7 @@ class Games extends CI_Controller {
 	        redirect('/Overviews/history/' .$id);
         }
         else{
-        	redirect('Registers');
+        	redirect('/Overviews/history/');
 	    }    		
     }
 

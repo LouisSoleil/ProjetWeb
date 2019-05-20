@@ -21,7 +21,7 @@
           ?>
       		<tr>
         	<td><?php echo $all->pseudoeleve; ?></td>
-        	<td><?php echo $all->noteestimee; ?></td>
+        	<td><?php echo $all->noteestimeei; ?></td>
       		</tr>
     	</tbody>
       <?php 

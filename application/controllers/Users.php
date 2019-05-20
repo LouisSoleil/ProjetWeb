@@ -63,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 else{
                     $this->My_User->update_user($user);
+                }
             }
             else {
                 redirect('Edits');

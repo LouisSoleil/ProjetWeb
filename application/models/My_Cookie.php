@@ -21,6 +21,7 @@ class My_Cookie extends CI_Model
     {
         $cookie = $this->input->cookie('LoginToken');
         $data = json_decode($cookie, true);
+        var_dump($data);
         if (isset($cookie)) {
             $token = $data['token'];
             $idUser = $data['PseudoEleve'];

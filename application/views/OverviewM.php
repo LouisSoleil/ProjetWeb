@@ -23,8 +23,8 @@
           ?>
       		<tr>
         	<td><?php echo $all->pseudoeleve; ?></td>
-        	<td><?php echo $all->noteestimee; ?></td>
-          <td><?php echo $all->notefinale; ?></td>
+        	<td><?php echo $all->noteestimeei; ?></td>
+          <td><?php echo $all->notefinalei; ?></td>
           <td><?php echo $all->difference; ?></td>
       		</tr>
     	</tbody>

@@ -33,7 +33,7 @@ class My_Game extends CI_Model
 	function getSubjectByYear($id){
 		$this->db->select('*');
 		$this->db->from('matiere');
-		$this->db->where('matiere.IdAnnee', $id);
+		$this->db->where('matiere.idannee', $id);
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -41,7 +41,7 @@ class My_Game extends CI_Model
 	function getFinalBySubject($id){
 		$this->db->select('*');
 		$this->db->from('devoir');
-		$this->db->where('devoir.IdMatiere', $id);
+		$this->db->where('devoir.idmatiere', $id);
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -49,9 +49,9 @@ class My_Game extends CI_Model
 
 	public function create_game1($user){
 		$data = array(
-			'PseudoEleve' => $user,
-			'IdDevoir' => $this->input->post('IdDevoir'),
-			'Date' => $this->input->post('Date'),
+			'pseudoeleve' => $user,
+			'iddevoir' => $this->input->post('IdDevoir'),
+			'date' => $this->input->post('Date'),
 		);
 		$data = html_escape($data);
 		$this->db->insert('partie', $data);
@@ -60,7 +60,7 @@ class My_Game extends CI_Model
 	public function user_games($id){
 		$this->db->select('*');
 		$this->db->from('partie');
-		$this->db->where('partie.PseudoEleve', $id);
+		$this->db->where('partie.pseudoeleve', $id);
 		$query = $this->db->get();
 		return $query ->result();
 		}
@@ -68,7 +68,7 @@ class My_Game extends CI_Model
 	public function get_game($id){
 		$this->db->select('*');
 		$this->db->from('partie');
-		$this->db->where('partie.IdPartie', $id);
+		$this->db->where('partie.idpartie', $id);
 		$query = $this->db->get();
 		return $query->result();
 
@@ -77,16 +77,16 @@ class My_Game extends CI_Model
 	public function get_guestByGame($id){
 		$this->db->select('*');
 		$this->db->from('inviter');
-		$this->db->where('inviter.IdPartie =', $id);
+		$this->db->where('inviter.idpartie =', $id);
 		$query = $this->db->get();
 		return $query->result();	
 	}
 
 	public function add_player($id){	
 		$data = array(
-				'IdPartie' => $id,
-				'PseudoEleve' => $this->input->post('PseudoEleve'),
-				'NoteEstimee' => $this->input->post('NoteEstimee'),
+				'idpartie' => $id,
+				'pseudoeleve' => $this->input->post('PseudoEleve'),
+				'noteestimee' => $this->input->post('NoteEstimee'),
 
 			);
 		$data = html_escape($data);
@@ -94,26 +94,26 @@ class My_Game extends CI_Model
 	} 
 
 	public function delete_game($id){
-		$this->db->where('IdPartie', $id);
+		$this->db->where('idpartie', $id);
 		$this->db->delete('partie');
 	}
 
 	public function delete_player($id){
-		$multiplewhere = ['IdPartie'=>$id, 'PseudoEleve'=> $_POST['SPseudoEleve']];
+		$multiplewhere = ['idpartie'=>$id, 'pseudoeleve'=> $_POST['SPseudoEleve']];
 		$this->db->where($multiplewhere);
 		$this->db->delete('inviter');
 	}
 
 	public function get_couple(){
-		$this->db->select('IdPartie, PseudoEleve');
+		$this->db->select('idpartie, pseudoeleve');
 		$this->db->from('inviter');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
 	public function get_avg($user){
-		$multiplewhere = ['IdPartie'=>$user->IdPartie, 'PseudoEleve'=> $user->PseudoEleve];
-		$this->db->select_avg('Difference');
+		$multiplewhere = ['idpartie'=>$user->idpartie, 'pseudoeleve'=> $user->pseudoeleve];
+		$this->db->select_avg('difference');
 		$this->db->from('inviter');
 		$this->db->where($multiplewhere);
 		$query = $this->db->get();
@@ -123,25 +123,25 @@ class My_Game extends CI_Model
 	public function updat($user, $idP, $diff){
 		if ($_POST['NoteEstimee'] == 0){
 			$data = array(
-					'NoteFinale' => $this->input->post('NoteFinale'));
+					'notefinale' => $this->input->post('NoteFinale'));
 		}
 		else{
 			$data = array(
-					'NoteEstimee' => $this->input->post('NoteEstimee'),
-					'NoteFinale' => $this->input->post('NoteFinale'),
-					'Difference' => $diff
+					'noteestimee' => $this->input->post('NoteEstimee'),
+					'notefinale' => $this->input->post('NoteFinale'),
+					'difference' => $diff
 				);
 		}
 		$data = html_escape($data);
-		$multiplewhere = ['PseudoEleve'=>$user, 'IdPartie'=> $idP];
+		$multiplewhere = ['pseudoeleve'=>$user, 'idpartie'=> $idP];
 		$this->db->where ($multiplewhere);
 		$this->db->update('inviter', $data,);
 	}
 
 	public function get_date($idP){
-		$this->db->select('Date');
+		$this->db->select('date');
 		$this->db->from('partie');
-		$this->db->where('partie.IdPartie', $idP);
+		$this->db->where('partie.idpartie', $idP);
 		$query = $this->db->get();
 		return $query -> result();
 	}

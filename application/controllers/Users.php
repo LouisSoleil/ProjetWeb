@@ -85,11 +85,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $mail = $this->input->post('Email');
                     $data = $this->My_User->getByMail($mail);
                     if (password_verify($_POST['MDPEleve'], $data[0]->mdpeleve)){
-                    $idUser = $data[0]->PseudoEleve;
+                    $idUser = $data[0]->pseudoeleve;
                     $cstrong = true;
                     $token = bin2hex(openssl_random_pseudo_bytes(64, $cstrong));
                     $values = array(
-                        'PseudoEleve' => $idUser,
+                        'pseudoeleve' => $idUser,
                         'token' => $token
                     );
                     $this->input->set_cookie('LoginToken', json_encode($values), (60 * 60 * 24 * 7), '', '/', '', null, true);

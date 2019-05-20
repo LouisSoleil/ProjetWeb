@@ -1,5 +1,5 @@
 .container{
-	background-image: url("https://github.com/LouisSoleil/ProjetWeb/blob/master/application/JPEG/fond-beige.png");
+	background-image: url("/ProjetWeb/application/JPEG/fond-beige.png");
 	border-radius: 15px;
 	height: auto;
 	margin-bottom: 5%;

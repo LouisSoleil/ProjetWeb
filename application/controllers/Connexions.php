@@ -12,4 +12,4 @@ class Connexions extends CI_Controller {
 		$this->load->view('Connexion');
 	}
 }
-?>
+?>	

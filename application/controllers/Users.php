@@ -59,13 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     else {
                         $encrypted = crypt($_POST['MDPEleveN1'], 'md5');
                         $this->My_User->update_user1($user, $encrypted);
-                        var_dump($test);
                     }
                 }
                 else{
                     $this->My_User->update_user($user);
-                    var_dump($test);
-                }
             }
             else {
                 redirect('Edits');
@@ -81,12 +78,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->form_validation->set_rules('MDPEleve', 'Password', 'required|min_length[7]');
                 if ($this->form_validation->run() === FALSE) {
                     $this->load->view('templates/header');
-                    $this->load->view('Users/login');
+                    $this->load->view('Connexions');
                 } 
                 else {
                     $mail = $this->input->post('Email');
                     $data = $this->My_User->getByMail($mail);
-                    var_dump($data);
                     if (password_verify($_POST['MDPEleve'], $data[0]->MDPEleve)){
                     $idUser = $data[0]->PseudoEleve;
                     $cstrong = true;

@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else{
             	$encrypted = crypt($_POST['MDPEleve'], 'md5');
                 $this->My_User->create_user($encrypted);
-                redirect('Welcome');
+                redirect('Connexions');
 			}
 		}
 

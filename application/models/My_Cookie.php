@@ -24,7 +24,7 @@ class My_Cookie extends CI_Model
         var_dump($data);
         if (isset($cookie)) {
             $token = $data['token'];
-            $idUser = $data['PseudoEleve'];
+            $idUser = $data['pseudoeleve'];
             $query = $this->db->query('SELECT token FROM tokeneleve WHERE pseudoeleve = ?', $idUser);
             $result = $query->result_array();
             foreach ($result as $t) {

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/ProjetWeb/application/assets/Register.css">
+<link rel="stylesheet" href="<?php echo base_url('assets/Register.css')?>">
 </head>
 <body>
 	<div class="container">

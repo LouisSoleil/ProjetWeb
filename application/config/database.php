@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$db = parse_url(getenv("DATABASE_URL"));
-$db["path"] = ltrim($db["path"], "/");
+$url = parse_url(getenv("DATABASE_URL"));
+$url["path"] = ltrim($db["path"], "/");
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -75,9 +75,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $db["host"],
-	'username' => $db["user"],
-	'password' => $db["pass"],
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
 	'database' => 'd23a7klhiio6r1',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
